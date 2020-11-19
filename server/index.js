@@ -27,6 +27,6 @@ express()
   // REST endpoints?
   .get("/bacon", (req, res) => res.status(200).json("🥓"))
 
-  // Testing for branching modifications
+  // Testing new branches
 
   .listen(PORT, () => console.info(`Listening on port ${PORT}`));
