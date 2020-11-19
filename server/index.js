@@ -27,6 +27,49 @@ express()
   // REST endpoints?
   .get("/bacon", (req, res) => res.status(200).json("🥓"))
 
-  // Testing new branches
+  // Endpoints that retrieves all items
+  .get("/items", (req, res) => {
+    // CODE HERE
+    res.status(200).json({
+      status: 200,
+      message: "Successfully retrieved all items",
+    });
+  })
+
+  // Endpoints that retrieves a specific
+  .get("/items/:itemId", (req, res) => {
+    // CODE HERE
+    res.status(200).json({
+      status: 200,
+      message: `Successfully retrieved item ${itemId} `,
+    });
+  })
+
+  // Endpoints that updates the quantity about specific item
+  .post("/items/:itemId", (req, res) => {
+    // CODE HERE
+    res.status(200).json({
+      status: 200,
+      message: `Successfully updated quantity of item ${itemId} `,
+    });
+  })
+
+  // Endpoints that retrieves a list of all companies
+  .get("/companies", (req, res) => {
+    // CODE HERE
+    res.status(200).json({
+      status: 200,
+      message: `Successfully retrieved all companies`,
+    });
+  })
+
+  // Endpoints that retrieves a list of all companies
+  .get("/companies/:companyId", (req, res) => {
+    // CODE HERE
+    res.status(200).json({
+      status: 200,
+      message: `Successfully retrieved ${companyId}'s info`,
+    });
+  })
 
   .listen(PORT, () => console.info(`Listening on port ${PORT}`));
