@@ -26,7 +26,9 @@ express()
 
   // REST endpoints?
   .get("/bacon", (req, res) => res.status(200).json("🥓"))
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e71e50bddffebef634a04e1f34560a0339067bd
 
   .listen(PORT, () => console.info(`Listening on port ${PORT}`));
-
-///Useless comment
