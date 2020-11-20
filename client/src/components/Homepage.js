@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Cart from "./Cart";
 import ItemGrid from "./ItemGrid";
 import { Sidebar } from "./Sidebar";
 
@@ -36,7 +37,9 @@ export const Homepage = ({ category, setCategory }) => {
           // TODO Add pets&animals Components
           "pets&animals Components "}
       </ItemDisplayGridWrapper>
-      <CartWrapper>{/* TODO Add Cart component  */}Cart Here</CartWrapper>
+      <CartWrapper>
+        <Cart />
+      </CartWrapper>
     </HomePageWrapper>
   );
 };
