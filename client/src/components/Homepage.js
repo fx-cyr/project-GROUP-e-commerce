@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Sidebar from "./Sidebar";
+import ItemGrid from "./ItemGrid";
 
 export const Homepage = () => {
   return (
@@ -10,7 +11,7 @@ export const Homepage = () => {
       </SidebarWrapper>
       <ItemDisplayGridWrapper>
         All the items here!
-        {/* TODO Add ItemGrid component  */}
+        <ItemGrid />
       </ItemDisplayGridWrapper>
       <CartWrapper>{/* TODO Add Cart component  */}Cart Here</CartWrapper>
     </HomePageWrapper>
