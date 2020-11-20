@@ -29,8 +29,8 @@ const ItemDetails = () => {
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
   margin: 40px 65px;
+  margin-left: 120px;
 `;
 
 const ProductImg = styled.img`

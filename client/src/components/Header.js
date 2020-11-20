@@ -45,6 +45,7 @@ export const Header = () => {
 const HeaderWrapper = styled.div`
   width: 100%;
   height: 70px;
+  padding: 15px 0px;
   background-color: ${colorsSet.primary};
   color: white;
   position: relative;
@@ -66,7 +67,7 @@ const CompanyName = styled.p`
 const RightNavBar = styled.nav`
   position: absolute;
   right: 5%;
-  top: 20px;
+  top: 38px;
   font-size: 1.7rem;
   display: flex;
 `;
