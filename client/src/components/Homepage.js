@@ -1,16 +1,47 @@
 import React from "react";
 import styled from "styled-components";
-import Sidebar from "./Sidebar";
+import { Sidebar } from "./Sidebar";
 
-export const Homepage = () => {
+export const Homepage = ({ category, setCategory }) => {
   return (
     <HomePageWrapper>
       <SidebarWrapper>
-        <Sidebar />
+
+        <Sidebar setCategory={setCategory} />
+
       </SidebarWrapper>
       <ItemDisplayGridWrapper>
-        All the items here!
-        {/* TODO Add ItemGrid component  */}
+        {category === "all" &&
+          // TODO Add All Items Components
+          "All Items "}
+
+        {category === "entertainement" &&
+          // TODO Add entertainement Components
+          "entertainement Components "}
+
+        {category === "fitness" &&
+          // TODO Add Fitness Components
+          "Fitness Components "}
+
+        {category === "gaming" &&
+          // TODO Add gaming Components
+          "gaming Components "}
+
+        {category === "industrial" &&
+          // TODO Add industrial Components
+          "industrial Components "}
+
+        {category === "lifestyle" &&
+          // TODO Add lifestyle Components
+          "lifestyle Components "}
+
+        {category === "medical" &&
+          // TODO Add medical Components
+          "medical Components "}
+
+        {category === "pets&animals" &&
+          // TODO Add pets&animals Components
+          "pets&animals Components "}
       </ItemDisplayGridWrapper>
       <CartWrapper>{/* TODO Add Cart component  */}Cart Here</CartWrapper>
     </HomePageWrapper>
