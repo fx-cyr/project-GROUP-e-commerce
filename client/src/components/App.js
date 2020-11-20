@@ -1,26 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "./Header";
 import { GlobalStyle } from "../Global/GlobalStyles";
-import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
+import {
+  Switch,
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import styled from "styled-components";
 import { Homepage } from "./Homepage";
 
 function App() {
+  const [category, setCategory] = useState("all");
+
   return (
     <Router>
       {/* Css Reset + general font-style */}
       <GlobalStyle />
 
       <HeaderWrapper>
-        <Header />
+        <Header category={category} />
       </HeaderWrapper>
 
       {/* TODO Add defensive turnary operator  */}
 
       <Switch>
         <Route exact path="/">
+          <Redirect to="/home/all" />
+        </Route>
+        <Route path="/home/:categoryId">
           <div>
-            <Homepage />
+            <Homepage category={category} setCategory={setCategory} />
           </div>
         </Route>
         <Route path="/about">
