@@ -113,13 +113,12 @@ export const Sidebar = ({ setCategory }) => {
 };
 
 const SidebarWrapper = styled.nav`
+  margin-right: 0;
   display: flex;
   flex-direction: column;
   justify-content: left;
   margin-top: 10px;
 `;
-
-
 
 const Bold = styled.span`
   font-weight: bold;
@@ -127,14 +126,7 @@ const Bold = styled.span`
   margin-right: 15px;
 `;
 
-const Bold = styled.span`
-  font-weight: bold;
-  margin-left: 15px;
-`;
-
-
 const NavigationLink = styled(NavLink)`
-  width: 50%;
   color: black;
   padding: 10px;
 
@@ -155,13 +147,11 @@ const UnorderedList = styled.ul`
 
 const ListItems = styled.li`
   height: 70px;
-  font-size: 1.5rem;
+  font-size: 18px;
 `;
-
 
 const SubNav = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 10px;
 `;
-
