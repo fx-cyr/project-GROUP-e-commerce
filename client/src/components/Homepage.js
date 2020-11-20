@@ -6,7 +6,9 @@ export const Homepage = ({ category, setCategory }) => {
   return (
     <HomePageWrapper>
       <SidebarWrapper>
+
         <Sidebar setCategory={setCategory} />
+
       </SidebarWrapper>
       <ItemDisplayGridWrapper>
         {category === "all" &&

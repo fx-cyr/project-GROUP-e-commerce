@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-// import { FiHome, FiUser, FiBell, FiBookmark } from "react-icons/fi";
+import { FiHome, FiUser, FiBell, FiBookmark } from "react-icons/fi";
 import { IoIosFitness, IoIosPaw } from "react-icons/io";
 import { MdFiberSmartRecord } from "react-icons/md";
 import { CgGames } from "react-icons/cg";
@@ -13,7 +13,6 @@ import { colorsSet } from "../Global/Colors";
 export const Sidebar = ({ setCategory }) => {
   return (
     <SidebarWrapper>
-      <Title>Shop by Category</Title>
       <SubNav>
         <UnorderedList>
           <ListItems>
@@ -120,22 +119,27 @@ const SidebarWrapper = styled.nav`
   margin-top: 10px;
 `;
 
-const Title = styled.p`
-  font-size: 2.5rem;
-  margin: 20px 0 50px 20px;
-  font-weight: bolder;
-`;
+
 
 const Bold = styled.span`
   font-weight: bold;
   margin-left: 15px;
   margin-right: 15px;
 `;
+
+const Bold = styled.span`
+  font-weight: bold;
+  margin-left: 15px;
+`;
+
+
 const NavigationLink = styled(NavLink)`
   width: 50%;
   color: black;
   padding: 10px;
+
   text-decoration: none;
+
   border-radius: 20px;
   &:hover {
     background-color: ${colorsSet.primaryHover};
@@ -144,6 +148,7 @@ const NavigationLink = styled(NavLink)`
     color: ${colorsSet.primary};
   }
 `;
+
 const UnorderedList = styled.ul`
   list-style: none;
 `;
@@ -153,8 +158,10 @@ const ListItems = styled.li`
   font-size: 1.5rem;
 `;
 
+
 const SubNav = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 10px;
 `;
+
