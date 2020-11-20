@@ -4,9 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 
-
 const items = require("./data/items.json");
-
 
 const PORT = 4000;
 
@@ -28,30 +26,35 @@ express()
   .use(express.urlencoded({ extended: false }))
   .use("/", express.static(__dirname + "/"))
 
-  // REST endpoints?
-  .get("/bacon", (req, res) => res.status(200).json("🥓"))
-
-
-
   // Endpoints that retrieves all items
   .get("/items", (req, res) => {
-    // CODE HERE
+    const data = items;
     res.status(200).json({
       status: 200,
       message: "Successfully retrieved all items",
+      items: data,
     });
   })
 
   // Endpoints that retrieves a specific
   .get("/items/:itemId", (req, res) => {
-
-    // CODE HERE
-
-
-    res.status(200).json({
-      status: 200,
-      message: `Successfully retrieved item ${itemId} `,
+    const { itemId } = req.params;
+    const singleItem = items.filter((item) => {
+      return item._id === Number(`${req.params.itemId}`);
     });
+
+    if (singleItem.length > 0) {
+      res.status(200).json({
+        status: 200,
+        message: `Successfully retrieved item ${itemId} `,
+        data: singleItem,
+      });
+    } else {
+      res.status(404).json({
+        status: 404,
+        message: "Couldn't find item",
+      });
+    }
   })
 
   // Endpoints that updates the quantity about specific item
