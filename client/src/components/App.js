@@ -7,6 +7,7 @@ function App() {
     <div>
       {/* Css Reset + general font-style */}
       <GlobalStyle />
+      <PurchaseModal />
     </div>
   );
 }
