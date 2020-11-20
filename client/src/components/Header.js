@@ -4,7 +4,7 @@ import { TiWatch } from "react-icons/ti";
 import { colorsSet } from "../Global/Colors";
 import { NavLink } from "react-router-dom";
 
-export const Header = () => {
+export const Header = ({ category }) => {
   return (
     <HeaderWrapper>
       <LeftHeaderContainer>
@@ -18,7 +18,10 @@ export const Header = () => {
       <RightNavBar>
         <StyledUL>
           <StyledLI>
-            <StyledNavLink exact to="/" aria-label="Link to Home Page">
+            <StyledNavLink
+              to={`/home/${category}`}
+              aria-label="Link to Home Page"
+            >
               Home
             </StyledNavLink>
           </StyledLI>
