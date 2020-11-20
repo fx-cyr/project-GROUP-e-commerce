@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
+const items = require("./data/items.json");
 
 const PORT = 4000;
 
@@ -43,7 +44,7 @@ express()
 
   // Endpoints that retrieves a specific
   .get("/items/:itemId", (req, res) => {
-    // CODE HERE
+    console.log(items);
     res.status(200).json({
       status: 200,
       message: `Successfully retrieved item ${itemId} `,
