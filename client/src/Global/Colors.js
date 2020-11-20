@@ -1,6 +1,4 @@
-export const colorsSet1 = {
-  primary: "#1E90FF",
-  hover: "#A3D1FF",
-  accept: "#90FF1E",
-  cancel: "#FF6347",
+export const colorsSet = {
+  primary: "#15616d",
+  primaryHover: "#5b9098",
 };
