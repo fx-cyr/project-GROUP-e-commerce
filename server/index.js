@@ -27,7 +27,12 @@ express()
 
   // REST endpoints?
   .get("/bacon", (req, res) => res.status(200).json("🥓"))
+<<<<<<< HEAD
+=======
 
+<<<<<<< HEAD
+>>>>>>> 6e71e50bddffebef634a04e1f34560a0339067bd
+=======
   // Endpoints that retrieves all items
   .get("/items", (req, res) => {
     // CODE HERE
