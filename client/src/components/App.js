@@ -3,6 +3,7 @@ import { Header } from "./Header";
 import { GlobalStyle } from "../Global/GlobalStyles";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import styled from "styled-components";
+import { Homepage } from "./Homepage";
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
 
       <Switch>
         <Route exact path="/">
-          <div>{/* Add home page component  */}Main Content</div>
+          <div>
+            <Homepage />
+          </div>
         </Route>
         <Route path="/about">
           <div>{/* Add home page component  */}About Us Content</div>
