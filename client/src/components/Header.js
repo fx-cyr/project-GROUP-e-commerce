@@ -3,45 +3,42 @@ import styled from "styled-components";
 import { TiWatch } from "react-icons/ti";
 import { colorsSet } from "../Global/Colors";
 import { NavLink } from "react-router-dom";
-import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <Router>
-      <HeaderWrapper>
-        <LeftHeaderContainer>
-          <div>
-            <TiWatch />
-          </div>
-          <div>
-            <CompanyName>DasWatches</CompanyName>
-          </div>
-        </LeftHeaderContainer>
-        <RightNavBar>
-          <StyledUL>
-            <StyledLI>
-              <StyledNavLink exact to="/" aria-label="Link to Home Page">
-                Home
-              </StyledNavLink>
-            </StyledLI>
-            <StyledLI>
-              <StyledNavLink exact to="/about" aria-label="Link to About Page">
-                About us
-              </StyledNavLink>
-            </StyledLI>
-            <StyledLI>
-              <StyledNavLink
-                exact
-                to="/partners"
-                aria-label="Link to our Partners Page"
-              >
-                Our Partners
-              </StyledNavLink>
-            </StyledLI>
-          </StyledUL>
-        </RightNavBar>
-      </HeaderWrapper>
-    </Router>
+    <HeaderWrapper>
+      <LeftHeaderContainer>
+        <div>
+          <TiWatch />
+        </div>
+        <div>
+          <CompanyName>DasWatches</CompanyName>
+        </div>
+      </LeftHeaderContainer>
+      <RightNavBar>
+        <StyledUL>
+          <StyledLI>
+            <StyledNavLink exact to="/" aria-label="Link to Home Page">
+              Home
+            </StyledNavLink>
+          </StyledLI>
+          <StyledLI>
+            <StyledNavLink exact to="/about" aria-label="Link to About Page">
+              About us
+            </StyledNavLink>
+          </StyledLI>
+          <StyledLI>
+            <StyledNavLink
+              exact
+              to="/partners"
+              aria-label="Link to our Partners Page"
+            >
+              Our Partners
+            </StyledNavLink>
+          </StyledLI>
+        </StyledUL>
+      </RightNavBar>
+    </HeaderWrapper>
   );
 };
 
