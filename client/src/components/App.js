@@ -10,7 +10,7 @@ function App() {
     <Router>
       {/* Css Reset + general font-style */}
       <GlobalStyle />
-    
+
       <HeaderWrapper>
         <Header />
       </HeaderWrapper>
