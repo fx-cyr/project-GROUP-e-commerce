@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
+
+
 import { GlobalStyle } from "../Global/GlobalStyles";
+
 
 function App() {
   const [bacon, setBacon] = useState(null);
@@ -19,5 +22,7 @@ function App() {
     </div>
   );
 }
+
+//Is thing working??
 
 export default App;
