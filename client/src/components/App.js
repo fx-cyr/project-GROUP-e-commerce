@@ -8,8 +8,6 @@ function App() {
       {/* Css Reset + general font-style */}
       <GlobalStyle />
       <Header />
-      <PurchaseModal />
-
     </div>
   );
 }
