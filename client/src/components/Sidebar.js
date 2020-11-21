@@ -34,7 +34,7 @@ export const Sidebar = ({ setCategory }) => {
             >
               {" "}
               <MdFiberSmartRecord />
-              <Bold>entertainement</Bold>
+              <Bold>Entertainement</Bold>
             </NavigationLink>
           </ListItems>
           <ListItems>
@@ -55,7 +55,7 @@ export const Sidebar = ({ setCategory }) => {
               }}
               to="/home/gaming"
             >
-              <CgGames /> <Bold>gaming</Bold>
+              <CgGames /> <Bold>Gaming</Bold>
             </NavigationLink>
           </ListItems>
           <ListItems>
@@ -67,7 +67,7 @@ export const Sidebar = ({ setCategory }) => {
             >
               {" "}
               <HiOutlineColorSwatch />
-              <Bold>industrial</Bold>
+              <Bold>Industrial</Bold>
             </NavigationLink>
           </ListItems>
           <ListItems>
@@ -79,7 +79,7 @@ export const Sidebar = ({ setCategory }) => {
             >
               {" "}
               <FaWalking />
-              <Bold>lifestyle</Bold>
+              <Bold>Lifestyle</Bold>
             </NavigationLink>
           </ListItems>
           <ListItems>
@@ -91,7 +91,7 @@ export const Sidebar = ({ setCategory }) => {
             >
               {" "}
               <AiOutlineMedicineBox />
-              <Bold>medical</Bold>
+              <Bold>Medical</Bold>
             </NavigationLink>
           </ListItems>
           <ListItems>
@@ -103,7 +103,7 @@ export const Sidebar = ({ setCategory }) => {
             >
               {" "}
               <IoIosPaw />
-              <Bold>pets&animals</Bold>
+              <Bold>Pets & Animals</Bold>
             </NavigationLink>
           </ListItems>
         </UnorderedList>
@@ -146,7 +146,7 @@ const UnorderedList = styled.ul`
 `;
 
 const ListItems = styled.li`
-  height: 70px;
+  padding: 10px;
   font-size: 18px;
 `;
 
