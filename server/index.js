@@ -27,7 +27,7 @@ express()
   .use("/", express.static(__dirname + "/"))
 
   // Endpoints that retrieves all items
-  .get("/items", (req, res) => {
+  .get("/api/items", (req, res) => {
     const data = items;
     res.status(200).json({
       status: 200,
@@ -37,7 +37,7 @@ express()
   })
 
   // Endpoints that retrieves a specific
-  .get("/items/:itemId", (req, res) => {
+  .get("api/items/:itemId", (req, res) => {
     const { itemId } = req.params;
     const singleItem = items.filter((item) => {
       return item._id === Number(`${req.params.itemId}`);
@@ -58,7 +58,7 @@ express()
   })
 
   // Endpoints that updates the quantity about specific item
-  .post("/items/:itemId", (req, res) => {
+  .post("api/items/:itemId", (req, res) => {
     // CODE HERE
     res.status(200).json({
       status: 200,
@@ -67,7 +67,7 @@ express()
   })
 
   // Endpoints that retrieves a list of all companies
-  .get("/companies", (req, res) => {
+  .get("api/companies", (req, res) => {
     // CODE HERE
     res.status(200).json({
       status: 200,
@@ -76,7 +76,7 @@ express()
   })
 
   // Endpoints that retrieves a list of all companies
-  .get("/companies/:companyId", (req, res) => {
+  .get("api/companies/:companyId", (req, res) => {
     // CODE HERE
     res.status(200).json({
       status: 200,

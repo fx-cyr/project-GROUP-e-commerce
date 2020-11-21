@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Item from "./Item";
 
 const ItemGrid = () => {
+  //FIRST GO AT IMPORTING DATA
+
+  // const [allProducts, setAllProducts] = useState([]);
+
+  // useEffect(() => {
+  //   fetch("/api/items")
+  //     .then((res) => {
+  //       console.log(res);
+  //       return res.json();
+  //     })
+  //     .then((json) => {
+  //       setAllProducts(json.items);
+  //     })
+  //     .catch((error) => {
+  //       console.log("error");
+  //     });
+  // }, []);
   return (
     <Wrapper>
       <Item />
