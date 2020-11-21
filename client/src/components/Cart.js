@@ -8,7 +8,7 @@ const Cart = () => {
     <Wrapper>
       <Title>Your Cart</Title>
       <NumOfItems>0 Item(s)</NumOfItems>
-
+      <CartItem />
       <TotalCostAndButton>
         <Total>
           Total: <strong>$0.00</strong>
@@ -20,14 +20,15 @@ const Cart = () => {
 };
 
 const Wrapper = styled.div`
-  position: relative;
+  background: #e9f8fa;
   display: flex;
+  position: sticky;
   flex-direction: column;
   color: black;
-  top: 0;
   min-height: 100vh;
-  padding: 15px 20px;
-  border-left: 2px dashed ${colorsSet.primary};
+  overflow: hidden;
+  padding: 15px;
+  border-left: 2px solid ${colorsSet.primary};
   align-items: center;
 `;
 
@@ -40,13 +41,16 @@ const NumOfItems = styled.span`
 `;
 
 const TotalCostAndButton = styled.div`
+  width: 9vw;
+  height: 10vh;
+  background: white;
   display: flex;
   position: fixed;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  width: 200px;
   bottom: 30px;
-  box-shadow: 0px 8px 23px -2px rgba(22, 98, 108, 0.48);
+  box-shadow: 0px 8px 23px -2px rgba(22, 98, 108, 0.3);
   padding: 25px;
   border-radius: 12px;
   transition: 0.2s;
@@ -62,12 +66,15 @@ const Total = styled.p`
 `;
 
 const PurchaseBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: ${colorsSet.primary};
   color: white;
   font-size: 1.2rem;
   border: none;
   height: 60px;
-  width: 160px;
+  max-width: 10vw;
   border-radius: 12px;
   padding: 10px 40px;
   cursor: pointer;
