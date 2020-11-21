@@ -37,7 +37,7 @@ express()
   })
 
   // Endpoints that retrieves a specific
-  .get("api/items/:itemId", (req, res) => {
+  .get("/api/items/:itemId", (req, res) => {
     const { itemId } = req.params;
     const singleItem = items.filter((item) => {
       return item._id === Number(`${req.params.itemId}`);
