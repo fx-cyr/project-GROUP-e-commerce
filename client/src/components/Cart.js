@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { colorsSet } from "../Global/Colors";
+import CartItem from "./CartItem";
 
 const Cart = () => {
   return (
     <Wrapper>
       <Title>Your Cart</Title>
       <NumOfItems>0 Item(s)</NumOfItems>
-      <CartItem />
+
       <TotalCostAndButton>
         <Total>
           Total: <strong>$0.00</strong>
@@ -27,29 +28,37 @@ const Wrapper = styled.div`
   min-height: 100vh;
   padding: 15px 20px;
   border-left: 2px dashed ${colorsSet.primary};
+  align-items: center;
 `;
 
 const Title = styled.span`
   font-size: 24px;
 `;
 
-const CartItem = styled.div``;
-
 const NumOfItems = styled.span`
   margin-top: 10px;
 `;
 
 const TotalCostAndButton = styled.div`
-  position: absolute;
   display: flex;
-  justify-content: space-between;
+  position: fixed;
   align-items: center;
-  bottom: 20px;
-  width: 88%;
+  flex-direction: column;
+  width: 200px;
+  bottom: 30px;
+  box-shadow: 0px 8px 23px -2px rgba(22, 98, 108, 0.48);
+  padding: 25px;
+  border-radius: 12px;
+  transition: 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const Total = styled.p`
   font-size: 1.2em;
+  margin-bottom: 12px;
 `;
 
 const PurchaseBtn = styled.button`
@@ -61,7 +70,6 @@ const PurchaseBtn = styled.button`
   width: 160px;
   border-radius: 12px;
   padding: 10px 40px;
-  box-shadow: 0px 8px 23px -2px rgba(22, 98, 108, 0.48);
   cursor: pointer;
   transition: 0.2s;
 
