@@ -3,22 +3,24 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import Button from "./Button";
 
-const Item = ({ id, title, src, price }) => {
+const Item = ({ key, item }) => {
   return (
     <Wrapper>
       <ImageWrapper>
-        <Image
-          src="https://www.casio-intl.com/product/image/1425420508500/"
-          alt="Watch name"
-        />
+        <Image src={item.imageSrc} alt="Watch name" />
       </ImageWrapper>
-      <CompanyName>Company Name</CompanyName>
-      <Title>Product Name</Title>
-      <Button>Add to cart</Button>
+
+      <Title>{item.name}</Title>
+      <Button>Add to cart - {item.price}</Button>
     </Wrapper>
   );
 };
 const Wrapper = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  width: 300px;
+  margin: 10px 5px;
   padding: 16px;
   background: #fff;
   box-shadow: 3px 2.8px 2.2px rgba(0, 0, 0, 0.07),
@@ -45,7 +47,7 @@ const Title = styled.h2`
   margin: 0;
   margin-bottom: 16px;
   margin-top: 8px;
-  font-size: 22px;
+  font-size: 14px;
   font-weight: 600;
 `;
 

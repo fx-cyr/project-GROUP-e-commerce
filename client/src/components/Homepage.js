@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Cart from "./Cart";
-import ItemGrid from "./ItemGrid";
 import { Sidebar } from "./Sidebar";
+import Item from "./Item";
 
 export const Homepage = ({ category, setCategory }) => {
+  const [allItems, setAllItems] = useState([]);
+
+  const fetchItems = async () => {
+    try {
+      const res = await fetch("/api/items");
+      const json = await res.json();
+      if (res.ok) {
+        console.log(json);
+        setAllItems(json.items);
+      }
+    } catch {
+      console.log("error");
+    }
+  };
+
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
+  console.log(allItems);
   return (
     <HomePageWrapper>
       <SidebarWrapper>
@@ -12,30 +32,56 @@ export const Homepage = ({ category, setCategory }) => {
       </SidebarWrapper>
       <ItemDisplayGridWrapper>
         {category === "all" &&
-          // TODO Add All Items Components
-          "All Items "}
+          allItems.map((item) => {
+            return <Item key={item.id} item={item} />;
+          })}
+
         {category === "entertainement" &&
-          // TODO Add entertainement Components
-          "entertainement Components "}
+          allItems.map((item) => {
+            if (item.category === "Entertainment") {
+              return <Item key={item.id} item={item} />;
+            }
+          })}
         {category === "fitness" &&
-          // TODO Add Fitness Components
-          "Fitness Components "}
+          allItems.map((item) => {
+            if (item.category === "Fitness") {
+              return <Item key={item.id} item={item} />;
+            }
+          })}
         {category === "gaming" &&
-          // TODO Add gaming Components
-          "gaming Components "}
-        {category === "industrial" && (
-          // TODO Add industrial Components
-          <ItemGrid />
-        )}
+          allItems.map((item) => {
+            if (item.category === "Gaming") {
+              return <Item key={item.id} item={item} />;
+            }
+          })}
+        {category === "industrial" &&
+          allItems.map((item) => {
+            if (item.category === "Industrial") {
+              return <Item key={item.id} item={item} />;
+            }
+          })}
+
         {category === "lifestyle" &&
           // TODO Add lifestyle Components
-          "lifestyle Components "}
+          allItems.map((item) => {
+            if (item.category === "Lifestyle") {
+              return <Item key={item.id} item={item} />;
+            }
+          })}
         {category === "medical" &&
           // TODO Add medical Components
-          "medical Components "}
+          allItems.map((item) => {
+            if (item.category === "Medical") {
+              return <Item key={item.id} item={item} />;
+            }
+          })}
         {category === "pets&animals" &&
           // TODO Add pets&animals Components
-          "pets&animals Components "}
+          allItems.map((item) => {
+            if (item.category === "Pets & Animals") {
+              return <Item key={item.id} item={item} />;
+            }
+          })}
       </ItemDisplayGridWrapper>
       <CartWrapper>
         <Cart />
@@ -55,6 +101,11 @@ const SidebarWrapper = styled.div`
 
 const ItemDisplayGridWrapper = styled.div`
   width: 65%;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 0 21%; /* explanation below */
+  margin: 5px;
+  height: 100px;
 `;
 
 const CartWrapper = styled.div`
