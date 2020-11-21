@@ -1,11 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import { colorsSet } from "../Global/Colors";
+import { Icon } from "react-icons-kit";
+import { x } from "react-icons-kit/feather/x";
 
 const CartItem = () => {
   return (
     <Wrapper>
       <TopDiv>
-        <Title>Hello World</Title>
+        <Title>Item name</Title>
+        <RemoveBtn>
+          <Icon
+            icon={x}
+            size={"100%"}
+            style={{ color: `${colorsSet.primary}` }}
+          />
+        </RemoveBtn>
       </TopDiv>
       <QtyDiv>
         Quantity: <Input />
@@ -15,9 +25,12 @@ const CartItem = () => {
 };
 
 const Wrapper = styled.div`
-  color: white;
-  border: 2px dashed grey;
-  margin-top: 50px;
+  background: white;
+  width: 88%;
+  border-radius: 12px;
+  box-shadow: 0px 8px 23px -2px rgba(22, 98, 108, 0.3);
+  margin-top: 20%;
+  padding: 10px;
 `;
 
 const TopDiv = styled.div`
@@ -27,12 +40,12 @@ const TopDiv = styled.div`
 `;
 
 const Title = styled.p`
-  color: white;
+  color: black;
   font-size: 1.2em;
-  padding: 0 8px;
+  padding: 8px;
 `;
 
-const CloseBtn = styled.button`
+const RemoveBtn = styled.button`
   height: 35px;
   width: 35px;
   background: transparent;
@@ -41,14 +54,15 @@ const CloseBtn = styled.button`
 `;
 
 const QtyDiv = styled.div`
-  background: #301732;
   padding: 8px;
-  color: #dcdcdc;
+  color: black;
 `;
 
 const Input = styled.input`
-  height: 25px;
-  width: 25px;
+  border: none;
+  border-bottom: 2px solid ${colorsSet.primary};
+  height: 20px;
+  width: 20px;
   font-size: inherit;
   display: inline-block;
 `;
