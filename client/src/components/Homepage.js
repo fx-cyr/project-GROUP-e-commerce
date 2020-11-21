@@ -46,20 +46,17 @@ export const Homepage = ({ category, setCategory }) => {
 
 const HomePageWrapper = styled.div`
   position: relative;
-  display: grid;
-  grid-template-columns: (1fr, 3fr, 1fr);
-  grid-template-areas: "sidebar main main main cart";
+  display: flex;
 `;
 
 const SidebarWrapper = styled.div`
-  grid-area: sidebar;
+  width: 20%;
 `;
 
 const ItemDisplayGridWrapper = styled.div`
-  grid-area: main;
-  width: 100%;
+  width: 65%;
 `;
 
 const CartWrapper = styled.div`
-  grid-area: cart;
+  width: 15%;
 `;
