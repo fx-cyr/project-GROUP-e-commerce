@@ -47,7 +47,7 @@ express()
       res.status(200).json({
         status: 200,
         message: `Successfully retrieved item ${itemId} `,
-        data: singleItem,
+        item: singleItem,
       });
     } else {
       res.status(404).json({
