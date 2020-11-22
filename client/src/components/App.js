@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import styled from "styled-components";
 import { Homepage } from "./Homepage";
+import ItemDetails from "./ItemDetails";
 
 function App() {
   const [category, setCategory] = useState("all");
@@ -38,6 +39,9 @@ function App() {
         </Route>
         <Route path="/partners">
           <div>{/* Add home page component  */}Our Partners</div>
+        </Route>
+        <Route path="/items/:itemId">
+          <ItemDetails />
         </Route>
       </Switch>
     </Router>
