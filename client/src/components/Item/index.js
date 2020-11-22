@@ -3,14 +3,22 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import Button from "./Button";
 import { useHistory } from "react-router-dom";
-import { colorSet, colorsSet } from "../../Global/Colors";
 
-const Item = ({ key, item }) => {
+import { addItems } from "../../actions";
+
+import { colorSet} from "../../Global/Colors";
+
+
+const Item = ({ item }) => {
+  // console.log(item);
   const history = useHistory();
+  const dispatch = useDispatch();
+
   const handleDetailsRedirect = () => {
     history.push(`/items/${item._id}`);
     console.log("redirect");
   };
+
   return (
     <Wrapper>
       <ImageWrapper>
@@ -24,7 +32,10 @@ const Item = ({ key, item }) => {
       </ImageWrapper>
 
       <Title>{item.name}</Title>
-      <Button>Add to cart - {item.price}</Button>
+
+      <Button onClick={() => dispatch(addItems(item))}>
+        Add to cart - {item.price}
+      </Button>
       <Hyperlink
         onClick={() => {
           handleDetailsRedirect();
@@ -32,6 +43,7 @@ const Item = ({ key, item }) => {
       >
         View product details
       </Hyperlink>
+
     </Wrapper>
   );
 };

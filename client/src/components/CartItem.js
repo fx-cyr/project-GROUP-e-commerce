@@ -3,14 +3,20 @@ import styled from "styled-components";
 import { colorsSet } from "../Global/Colors";
 import { Icon } from "react-icons-kit";
 import { x } from "react-icons-kit/feather/x";
+import { useDispatch } from "react-redux";
+import { removeItem } from "../actions";
 
-const CartItem = () => {
+const CartItem = ({ name, quantity, id }) => {
+  console.log(id);
+  const dispatch = useDispatch();
+
   return (
     <Wrapper>
       <TopDiv>
-        <Title>Item name</Title>
+        <Title>{name}</Title>
         <RemoveBtn>
           <Icon
+            onClick={() => dispatch(removeItem(id))}
             icon={x}
             size={"100%"}
             style={{ color: `${colorsSet.primary}` }}
@@ -18,7 +24,8 @@ const CartItem = () => {
         </RemoveBtn>
       </TopDiv>
       <QtyDiv>
-        Quantity: <Input />
+        Quantity: {quantity}
+        <Input />
       </QtyDiv>
     </Wrapper>
   );

@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { colorsSet } from "../Global/Colors";
 import { useParams } from "react-router";
+import { useDispatch } from "react-redux";
+import { addItems } from "../actions";
 
 const ItemDetails = () => {
   let { itemId } = useParams();
   const [singleItem, setSingleItem] = useState(null);
+  const dispatch = useDispatch();
+  // console.log(singleItem);
 
   // Data for single item
   const fetchSingleItem = async () => {
@@ -24,6 +28,8 @@ const ItemDetails = () => {
   useEffect(() => {
     fetchSingleItem();
   }, []);
+
+  console.log(singleItem);
 
   return (
     <>
@@ -47,7 +53,9 @@ const ItemDetails = () => {
               </Select>
             </Form>
 
-            <PurchaseButton>Add to Cart</PurchaseButton>
+            <PurchaseButton onClick={() => dispatch(addItems({ singleItem }))}>
+              Add to Cart
+            </PurchaseButton>
           </ItemInfoWrapper>
         </Wrapper>
       )}

@@ -3,11 +3,13 @@ const initialState = {};
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_ITEM": {
-      const currentItemFromState = state[action.item.id];
-
+      // console.log(action.item);
+      // console.log(state);
+      const currentItemFromState = state[action.item._id];
+      // console.log(currentItemFromState);
       return {
         ...state,
-        [action.item.id]: {
+        [action.item._id]: {
           ...action.item,
           quantity: currentItemFromState
             ? currentItemFromState.quantity + 1
@@ -18,7 +20,7 @@ export const cartReducer = (state = initialState, action) => {
 
     case "REMOVE_ITEM": {
       const stateCopy = { ...state };
-      delete stateCopy[action.item.id];
+      delete stateCopy[action.item._id];
       return stateCopy;
     }
     default:

@@ -2,16 +2,44 @@ import React from "react";
 import styled from "styled-components";
 import { colorsSet } from "../Global/Colors";
 import CartItem from "./CartItem";
+import { getStoreItemArray } from "../reducers/cartReducer";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
+  //Create an Array of items in the cart
+  const storeItems = useSelector(getStoreItemArray);
+  console.log(storeItems);
+
+  //Calculate the Cart total
+  let total = 0;
+  storeItems.forEach((item) => {
+    let itemPrice = item.price.replace("$", "");
+    total += itemPrice * item.quantity;
+    return total;
+  });
+  total = total.toFixed(2);
+
   return (
     <Wrapper>
       <Title>Your Cart</Title>
-      <NumOfItems>0 Item(s)</NumOfItems>
-      <CartItem />
+      <NumOfItems>{storeItems.length} Item(s)</NumOfItems>
+
+      {/* Mapping in the cart array to create cart items components */}
+      {storeItems &&
+        storeItems.map((item, index) => {
+          return (
+            <CartItem
+              key={index}
+              name={item.name}
+              price={item.price.replace("$", "")}
+              quantity={item.quantity}
+              id={item._id}
+            />
+          );
+        })}
       <TotalCostAndButton>
         <Total>
-          Total: <strong>$0.00</strong>
+          Total: <strong>${total}</strong>
         </Total>
         <PurchaseBtn>Purchase</PurchaseBtn>
       </TotalCostAndButton>
