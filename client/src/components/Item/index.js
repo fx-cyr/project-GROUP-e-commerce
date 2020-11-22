@@ -3,7 +3,11 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import Button from "./Button";
 import { useHistory } from "react-router-dom";
+
 import { addItems } from "../../actions";
+
+import { colorSet} from "../../Global/Colors";
+
 
 const Item = ({ item }) => {
   // console.log(item);
@@ -28,9 +32,18 @@ const Item = ({ item }) => {
       </ImageWrapper>
 
       <Title>{item.name}</Title>
+
       <Button onClick={() => dispatch(addItems(item))}>
         Add to cart - {item.price}
       </Button>
+      <Hyperlink
+        onClick={() => {
+          handleDetailsRedirect();
+        }}
+      >
+        View product details
+      </Hyperlink>
+
     </Wrapper>
   );
 };
@@ -73,6 +86,18 @@ const Title = styled.h2`
 const CompanyName = styled.p`
   margin-top: 8px;
   font-style: italic;
+`;
+
+const Hyperlink = styled.p`
+  margin: 10px;
+  font-size: 14px;
+  color: gray;
+  font-style: italic;
+  &:hover {
+    cursor: pointer;
+    color: ${colorsSet.primary};
+    text-decoration: underline;
+  }
 `;
 
 export default Item;

@@ -78,8 +78,10 @@ export const Homepage = ({ category, setCategory }) => {
         {category === "pets&animals" &&
           // TODO Add pets&animals Components
           allItems.map((item) => {
+
             if (item.category === "Pets & Animals") {
               return <Item key={item._id} item={item} />;
+
             }
           })}
       </ItemDisplayGridWrapper>
