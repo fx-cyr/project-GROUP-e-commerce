@@ -1,29 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { colorsSet } from "../Global/Colors";
+import { useParams } from "react-router";
 
 const ItemDetails = () => {
+  let { itemId } = useParams();
+  const [singleItem, setSingleItem] = useState(null);
+
+  // Data for single item
+  const fetchSingleItem = async () => {
+    try {
+      const res = await fetch(`/api/items/${itemId}`);
+      const json = await res.json();
+      if (res.ok) {
+        console.log(json.item[0]);
+        setSingleItem(json.item[0]);
+      }
+    } catch {
+      console.log("error");
+    }
+  };
+
+  useEffect(() => {
+    fetchSingleItem();
+  }, []);
+
   return (
-    <Wrapper>
-      <ProductImg src="https://www.casio-intl.com/product/image/1425420508500/" />
-      <ItemInfoWrapper>
-        <div>
-          <Brand>Brand</Brand>
-          <ItemName>Item Name</ItemName>
-        </div>
-        <Cost>$49.99</Cost>
-        <p>Quantity in stock: 9</p>
-        <Form>
-          <QtyInput>Quantity:</QtyInput>
-          <Select>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-          </Select>
-        </Form>
-        <PurchaseButton>Buy Now!</PurchaseButton>
-      </ItemInfoWrapper>
-    </Wrapper>
+    <>
+      {!singleItem && "Loading"}
+      {singleItem && (
+        <Wrapper>
+          <ProductImg src={singleItem.imageSrc} />
+          <ItemInfoWrapper>
+            <div>
+              <Brand>Brand</Brand>
+              <ItemName>{singleItem.name}</ItemName>
+            </div>
+            <Cost>{singleItem.price}</Cost>
+            <p>Quantity in stock: {singleItem.numInStock}</p>
+            <Form>
+              <QtyInput>Quantity:</QtyInput>
+              <Select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </Select>
+            </Form>
+
+            <PurchaseButton>Add to Cart</PurchaseButton>
+          </ItemInfoWrapper>
+        </Wrapper>
+      )}
+    </>
   );
 };
 
