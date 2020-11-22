@@ -2,12 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import Button from "./Button";
+import { useHistory } from "react-router-dom";
 
 const Item = ({ key, item }) => {
+  const history = useHistory();
+  const handleDetailsRedirect = () => {
+    history.push(`/items/${item._id}`);
+    console.log("redirect");
+  };
   return (
     <Wrapper>
       <ImageWrapper>
-        <Image src={item.imageSrc} alt="Watch name" />
+        <Image
+          onClick={() => {
+            handleDetailsRedirect();
+          }}
+          src={item.imageSrc}
+          alt="Watch name"
+        />
       </ImageWrapper>
 
       <Title>{item.name}</Title>
