@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { colorsSet } from "../Global/Colors";
 import { useParams } from "react-router";
+import Button from "./Item/Button";
 
 const ItemDetails = () => {
   let { itemId } = useParams();
@@ -33,7 +34,7 @@ const ItemDetails = () => {
           <ProductImg src={singleItem.imageSrc} />
           <ItemInfoWrapper>
             <div>
-              <Brand>Brand</Brand>
+              <Category>{singleItem.category}</Category>
               <ItemName>{singleItem.name}</ItemName>
             </div>
             <Cost>{singleItem.price}</Cost>
@@ -44,10 +45,11 @@ const ItemDetails = () => {
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
+                <option>4</option>
+                <option>5</option>
               </Select>
             </Form>
-
-            <PurchaseButton>Add to Cart</PurchaseButton>
+            <Button>Add to cart</Button>
           </ItemInfoWrapper>
         </Wrapper>
       )}
@@ -62,7 +64,7 @@ const Wrapper = styled.div`
 `;
 
 const ProductImg = styled.img`
-  height: 650px;
+  height: 550px;
   width: auto;
   border-radius: 12px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -75,8 +77,9 @@ const ItemInfoWrapper = styled.div`
   margin: 60px;
 `;
 
-const Brand = styled.h2`
+const Category = styled.h2`
   font-size: 1.8rem;
+  padding-bottom: 15px;
 `;
 
 const ItemName = styled.h1`
@@ -99,21 +102,21 @@ const Select = styled.select`
   padding: 5px;
 `;
 
-const PurchaseButton = styled.button`
-  background-color: ${colorsSet.primary};
-  color: white;
-  font-size: 1.2rem;
-  border: none;
-  height: 60px;
-  width: 230px;
-  border-radius: 12px;
-  padding: 10px 40px;
-  cursor: pointer;
-  transition: 0.2s;
+// const PurchaseButton = styled.button`
+//   background-color: ${colorsSet.primary};
+//   color: white;
+//   font-size: 1.2rem;
+//   border: none;
+//   height: 60px;
+//   width: 230px;
+//   border-radius: 12px;
+//   padding: 10px 40px;
+//   cursor: pointer;
+//   transition: 0.2s;
 
-  &:hover {
-    background-color: ${colorsSet.primaryHover};
-  }
-`;
+//   &:hover {
+//     background-color: ${colorsSet.primaryHover};
+//   }
+// `;
 
 export default ItemDetails;
