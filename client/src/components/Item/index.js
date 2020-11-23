@@ -31,9 +31,11 @@ const Item = ({ item }) => {
       </ImageWrapper>
 
       <Title>{item.name}</Title>
-      {item.numInStock > 0 ? (
-        <Button onClick={() => dispatch(addItems(item))}>
-          Add to cart - {item.price}
+      {item.numInStock > 0 && (
+        <>
+          <Button onClick={() => dispatch(addItems(item))}>
+            Add to cart - {item.price}
+          </Button>
           <Hyperlink
             onClick={() => {
               handleDetailsRedirect();
@@ -41,10 +43,9 @@ const Item = ({ item }) => {
           >
             View product details
           </Hyperlink>
-        </Button>
-      ) : (
-        <div>Out Of Stock</div>
+        </>
       )}
+      {item.numInStock <= 0 && <OOSButton disabled> Out of stock</OOSButton>}
     </Wrapper>
   );
 };
@@ -99,6 +100,20 @@ const Hyperlink = styled.p`
     color: ${colorsSet.primary};
     text-decoration: underline;
   }
+`;
+
+const OOSButton = styled.button`
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  background: ${colorsSet.primaryHover};
+  color: white;
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: not-allowed;
 `;
 
 export default Item;

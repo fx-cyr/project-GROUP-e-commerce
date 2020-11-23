@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { colorsSet } from "../Global/Colors";
 import { Icon } from "react-icons-kit";
 import { x } from "react-icons-kit/feather/x";
 import { useDispatch } from "react-redux";
 import { removeItem } from "../actions";
+import { range } from "../utils";
+import Item from "./Item";
 
-const CartItem = ({ name, quantity, id }) => {
-  // console.log(id);
+const CartItem = ({ name, quantity, id, numInStock }) => {
   const dispatch = useDispatch();
-
   return (
     <Wrapper>
       <TopDiv>
@@ -23,10 +23,21 @@ const CartItem = ({ name, quantity, id }) => {
           />
         </RemoveBtn>
       </TopDiv>
-      <QtyDiv>
+      {/* <QtyDiv>
         Quantity: {quantity}
-        <Input />
-      </QtyDiv>
+        <Input type="quantity" />
+      </QtyDiv> */}
+      <Form>
+        <Label for="quantity">Quantity:</Label>
+        <Dropdown
+          type="number"
+          id="quantity"
+          name="quantity"
+          min="1"
+          max={numInStock}
+          step="1"
+        />
+      </Form>
     </Wrapper>
   );
 };
@@ -73,5 +84,9 @@ const Input = styled.input`
   font-size: inherit;
   display: inline-block;
 `;
+
+const Form = styled.form``;
+const Label = styled.label``;
+const Dropdown = styled.input``;
 
 export default CartItem;
