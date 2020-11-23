@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { colorsSet } from "../Global/Colors";
 import { useParams } from "react-router";
-import Button from "./Item/Button";
+import { useDispatch } from "react-redux";
+import { addItems } from "../actions";
+import Cart from "./Cart";
 
 const ItemDetails = () => {
   let { itemId } = useParams();
   const [singleItem, setSingleItem] = useState(null);
+  const dispatch = useDispatch();
+  // console.log(singleItem);
 
   // Data for single item
   const fetchSingleItem = async () => {
@@ -26,12 +30,14 @@ const ItemDetails = () => {
     fetchSingleItem();
   }, []);
 
+  console.log(singleItem);
+
   return (
     <>
       {!singleItem && "Loading"}
       {singleItem && (
         <Wrapper>
-          <ProductImg src={singleItem.imageSrc} />
+          <ProductImg src={singleItem.imageSrc} alt="Item name" />
           <ItemInfoWrapper>
             <div>
               <Category>{singleItem.category}</Category>
@@ -49,23 +55,32 @@ const ItemDetails = () => {
                 <option>5</option>
               </Select>
             </Form>
-            <Button>Add to cart</Button>
+            <PurchaseButton onClick={() => dispatch(addItems({ singleItem }))}>
+              Add to Cart
+            </PurchaseButton>
           </ItemInfoWrapper>
+          <CartWrapper>
+            <Cart />
+          </CartWrapper>
         </Wrapper>
       )}
     </>
   );
 };
 
+const CartWrapper = styled.div`
+  width: 15%;
+`;
+
 const Wrapper = styled.div`
   display: flex;
-  margin: 40px 65px;
-  margin-left: 120px;
+  margin-left: 110px;
 `;
 
 const ProductImg = styled.img`
-  height: 550px;
-  width: auto;
+  margin-top: 100px;
+  height: 55vh;
+  width: 35vw;
   border-radius: 12px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 `;
@@ -102,21 +117,21 @@ const Select = styled.select`
   padding: 5px;
 `;
 
-// const PurchaseButton = styled.button`
-//   background-color: ${colorsSet.primary};
-//   color: white;
-//   font-size: 1.2rem;
-//   border: none;
-//   height: 60px;
-//   width: 230px;
-//   border-radius: 12px;
-//   padding: 10px 40px;
-//   cursor: pointer;
-//   transition: 0.2s;
+const PurchaseButton = styled.button`
+  background-color: ${colorsSet.primary};
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  height: 60px;
+  width: 230px;
+  border-radius: 12px;
+  padding: 10px 40px;
+  cursor: pointer;
+  transition: 0.2s;
 
-//   &:hover {
-//     background-color: ${colorsSet.primaryHover};
-//   }
-// `;
+  &:hover {
+    background-color: ${colorsSet.primaryHover};
+  }
+`;
 
 export default ItemDetails;

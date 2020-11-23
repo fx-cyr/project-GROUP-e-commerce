@@ -24,7 +24,7 @@ export const Homepage = ({ category, setCategory }) => {
     fetchItems();
   }, []);
 
-  console.log(allItems);
+  // console.log(allItems);
   return (
     <HomePageWrapper>
       <SidebarWrapper>
@@ -33,31 +33,31 @@ export const Homepage = ({ category, setCategory }) => {
       <ItemDisplayGridWrapper>
         {category === "all" &&
           allItems.map((item) => {
-            return <Item key={item.id} item={item} />;
+            return <Item key={item._id} item={item} />;
           })}
 
         {category === "entertainement" &&
           allItems.map((item) => {
             if (item.category === "Entertainment") {
-              return <Item key={item.id} item={item} />;
+              return <Item key={item._id} item={item} />;
             }
           })}
         {category === "fitness" &&
           allItems.map((item) => {
             if (item.category === "Fitness") {
-              return <Item key={item.id} item={item} />;
+              return <Item key={item._id} item={item} />;
             }
           })}
         {category === "gaming" &&
           allItems.map((item) => {
             if (item.category === "Gaming") {
-              return <Item key={item.id} item={item} />;
+              return <Item key={item._id} item={item} />;
             }
           })}
         {category === "industrial" &&
           allItems.map((item) => {
             if (item.category === "Industrial") {
-              return <Item key={item.id} item={item} />;
+              return <Item key={item._id} item={item} />;
             }
           })}
 
@@ -65,21 +65,21 @@ export const Homepage = ({ category, setCategory }) => {
           // TODO Add lifestyle Components
           allItems.map((item) => {
             if (item.category === "Lifestyle") {
-              return <Item key={item.id} item={item} />;
+              return <Item key={item._id} item={item} />;
             }
           })}
         {category === "medical" &&
           // TODO Add medical Components
           allItems.map((item) => {
             if (item.category === "Medical") {
-              return <Item key={item.id} item={item} />;
+              return <Item key={item._id} item={item} />;
             }
           })}
         {category === "pets&animals" &&
           // TODO Add pets&animals Components
           allItems.map((item) => {
-            if (item.category === "Pets and Animals") {
-              return <Item key={item.id} item={item} />;
+            if (item.category === "Pets & Animals") {
+              return <Item key={item._id} item={item} />;
             }
           })}
       </ItemDisplayGridWrapper>

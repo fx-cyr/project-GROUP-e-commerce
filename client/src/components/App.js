@@ -35,10 +35,10 @@ function App() {
           </div>
         </Route>
         <Route path="/about">
-          <div>{/* Add home page component  */}About Us Content</div>
+          <div>{/* Add about page component  */}About Us Content</div>
         </Route>
         <Route path="/partners">
-          <div>{/* Add home page component  */}Our Partners</div>
+          <div>{/* Add partners page component  */}Our Partners</div>
         </Route>
         <Route path="/items/:itemId">
           <ItemDetails />
