@@ -3,18 +3,22 @@ const initialState = {};
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_ITEM": {
-      // console.log(action.item);
-      // console.log(state);
       const currentItemFromState = state[action.item._id];
-      // console.log(currentItemFromState);
+
       return {
         ...state,
+
         [action.item._id]: {
           ...action.item,
           quantity: currentItemFromState
             ? currentItemFromState.quantity + 1
             : 1,
         },
+
+        // [action.item._id]: {
+        //   ...action.item,
+        //   numInStock: numInStock - 1,
+        // },
       };
     }
 

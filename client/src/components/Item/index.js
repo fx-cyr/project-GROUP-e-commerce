@@ -28,9 +28,13 @@ const Item = ({ item }) => {
       </ImageWrapper>
 
       <Title>{item.name}</Title>
-      <Button onClick={() => dispatch(addItems(item))}>
-        Add to cart - {item.price}
-      </Button>
+      {item.numInStock > 0 ? (
+        <Button onClick={() => dispatch(addItems(item))}>
+          Add to cart - {item.price}
+        </Button>
+      ) : (
+        <div>Out Of Stock</div>
+      )}
     </Wrapper>
   );
 };
