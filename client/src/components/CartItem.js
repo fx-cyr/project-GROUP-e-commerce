@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { removeItem } from "../actions";
 
 const CartItem = ({ name, quantity, id }) => {
-  console.log(id);
+  // console.log(id);
   const dispatch = useDispatch();
 
   return (

@@ -31,17 +31,20 @@ const Item = ({ item }) => {
       </ImageWrapper>
 
       <Title>{item.name}</Title>
-
-      <Button onClick={() => dispatch(addItems(item))}>
-        Add to cart - {item.price}
-      </Button>
-      <Hyperlink
-        onClick={() => {
-          handleDetailsRedirect();
-        }}
-      >
-        View product details
-      </Hyperlink>
+      {item.numInStock > 0 ? (
+        <Button onClick={() => dispatch(addItems(item))}>
+          Add to cart - {item.price}
+          <Hyperlink
+            onClick={() => {
+              handleDetailsRedirect();
+            }}
+          >
+            View product details
+          </Hyperlink>
+        </Button>
+      ) : (
+        <div>Out Of Stock</div>
+      )}
     </Wrapper>
   );
 };
