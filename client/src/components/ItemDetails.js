@@ -37,14 +37,16 @@ const ItemDetails = () => {
       {!singleItem && "Loading"}
       {singleItem && (
         <Wrapper>
-          <ProductImg src={singleItem.imageSrc} alt="Item name" />
+          <ImgWrapper>
+            <ProductImg src={singleItem.imageSrc} alt="Item name" />
+          </ImgWrapper>
           <ItemInfoWrapper>
             <div>
               <Category>{singleItem.category}</Category>
               <ItemName>{singleItem.name}</ItemName>
             </div>
             <Cost>{singleItem.price}</Cost>
-            <p>Quantity in stock: {singleItem.numInStock}</p>
+            <Stock>Quantity in stock: {singleItem.numInStock}</Stock>
             <Form>
               <QtyInput>Quantity:</QtyInput>
               <Select>
@@ -70,15 +72,21 @@ const ItemDetails = () => {
 
 const CartWrapper = styled.div`
   width: 15%;
+  justify-content: center;
 `;
 
 const Wrapper = styled.div`
   display: flex;
-  margin-left: 110px;
+  margin-left: 100px;
+`;
+
+const ImgWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 const ProductImg = styled.img`
-  margin-top: 100px;
+  margin-top: 60px;
   height: 55vh;
   width: 35vw;
   border-radius: 12px;
@@ -88,8 +96,7 @@ const ProductImg = styled.img`
 const ItemInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  margin: 60px;
+  margin: 50px 0 50px 50px;
 `;
 
 const Category = styled.h2`
@@ -99,10 +106,17 @@ const Category = styled.h2`
 
 const ItemName = styled.h1`
   font-size: 2.3rem;
+  max-width: 70%;
+  padding-bottom: 15px;
 `;
 
 const Cost = styled.p`
   font-size: 1.8rem;
+  padding-bottom: 15px;
+`;
+
+const Stock = styled.p`
+  padding-bottom: 15px;
 `;
 
 const QtyInput = styled.div``;
@@ -110,6 +124,7 @@ const QtyInput = styled.div``;
 const Form = styled.form`
   display: flex;
   align-items: center;
+  padding-bottom: 10%;
 `;
 
 const Select = styled.select`
@@ -122,7 +137,7 @@ const PurchaseButton = styled.button`
   color: white;
   font-size: 1.2rem;
   border: none;
-  height: 60px;
+  height: 80px;
   width: 230px;
   border-radius: 12px;
   padding: 10px 40px;
