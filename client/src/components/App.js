@@ -11,6 +11,7 @@ import styled from "styled-components";
 import { Homepage } from "./Homepage";
 import ItemDetails from "./ItemDetails";
 import { Partners } from "./Partners/Partners";
+import { AboutUs } from "./AboutUs/AboutUs";
 
 function App() {
   const [category, setCategory] = useState("all");
@@ -53,7 +54,7 @@ function App() {
           </div>
         </Route>
         <Route path="/about">
-          <div>{/* Add about page component  */}About Us Content</div>
+          <AboutUs />
         </Route>
         <Route path="/partners">
           <Partners allCompanies={allCompanies} />
