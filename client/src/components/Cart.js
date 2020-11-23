@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 const Cart = () => {
   //Create an Array of items in the cart
   const storeItems = useSelector(getStoreItemArray);
-  console.log(storeItems);
+  // console.log(storeItems);
 
   //Calculate the Cart total
   let total = 0;
