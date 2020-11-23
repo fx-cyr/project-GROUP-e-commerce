@@ -37,43 +37,50 @@ const ItemDetails = () => {
       {!singleItem && "Loading"}
       {singleItem && (
         <Wrapper>
-          <ProductImg src={singleItem.imageSrc} />
+          <ProductImg src={singleItem.imageSrc} alt="Item name" />
           <ItemInfoWrapper>
             <div>
-              <Brand>Brand</Brand>
+              <Category>{singleItem.category}</Category>
               <ItemName>{singleItem.name}</ItemName>
             </div>
             <Cost>{singleItem.price}</Cost>
-            {/* <p>Quantity in stock: {singleItem.numInStock}</p> */}
+            <p>Quantity in stock: {singleItem.numInStock}</p>
             <Form>
               <QtyInput>Quantity:</QtyInput>
               <Select>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
+                <option>4</option>
+                <option>5</option>
               </Select>
             </Form>
-
-            {/* <PurchaseButton onClick={() => dispatch(addItems({ singleItem }))}>
+            <PurchaseButton onClick={() => dispatch(addItems({ singleItem }))}>
               Add to Cart
-            </PurchaseButton> */}
+            </PurchaseButton>
           </ItemInfoWrapper>
-          {/* <Cart /> */}
+          <CartWrapper>
+            <Cart />
+          </CartWrapper>
         </Wrapper>
       )}
     </>
   );
 };
 
+const CartWrapper = styled.div`
+  width: 15%;
+`;
+
 const Wrapper = styled.div`
   display: flex;
-  margin: 40px 65px;
-  margin-left: 120px;
+  margin-left: 110px;
 `;
 
 const ProductImg = styled.img`
-  height: 650px;
-  width: auto;
+  margin-top: 100px;
+  height: 55vh;
+  width: 35vw;
   border-radius: 12px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 `;
@@ -85,8 +92,9 @@ const ItemInfoWrapper = styled.div`
   margin: 60px;
 `;
 
-const Brand = styled.h2`
+const Category = styled.h2`
   font-size: 1.8rem;
+  padding-bottom: 15px;
 `;
 
 const ItemName = styled.h1`
