@@ -4,27 +4,43 @@ import { colorsSet } from "../Global/Colors";
 import { Icon } from "react-icons-kit";
 import { x } from "react-icons-kit/feather/x";
 import { useDispatch } from "react-redux";
-import { removeItem } from "../actions";
+import { removeItem, updateQuantity } from "../actions";
 import { range } from "../utils";
 import Item from "./Item";
-import QuantitySelector from "./QuantitySelector";
 
 const CartItem = ({ name, quantity, id, numInStock }) => {
+  const [newQuantity, setNewQuantity] = useState(1);
+  const handleQuantity = (ev) => {
+    setNewQuantity(ev.target.value);
+    dispatch(updateQuantity({ id, quantity: newQuantity }));
+  };
+
   const dispatch = useDispatch();
   return (
     <Wrapper>
       <TopDiv>
         <Title>{name}</Title>
+
         <RemoveBtn>
           <Icon
-            onClick={() => dispatch(removeItem(id))}
+            onClick={() => dispatch(removeItem({ id }))}
             icon={x}
             size={"100%"}
             style={{ color: `${colorsSet.primary}` }}
           />
         </RemoveBtn>
       </TopDiv>
-      <QuantitySelector numInStock={numInStock} />
+      <Form>
+        <Label for="quantity">Quantity:</Label>
+        <Dropdown
+          type="number"
+          min="1"
+          value={quantity}
+          max={numInStock}
+          step="1"
+          onChange={handleQuantity}
+        />
+      </Form>
     </Wrapper>
   );
 };
@@ -58,22 +74,15 @@ const RemoveBtn = styled.button`
   cursor: pointer;
 `;
 
-const QtyDiv = styled.div`
-  padding: 8px;
-  color: black;
-`;
-
-const Input = styled.input`
-  border: none;
-  border-bottom: 2px solid ${colorsSet.primary};
-  height: 20px;
-  width: 20px;
-  font-size: inherit;
-  display: inline-block;
-`;
-
 const Form = styled.form``;
 const Label = styled.label``;
-const Dropdown = styled.input``;
+const Dropdown = styled.input`
+  background-color: ${colorsSet.primary};
+  margin-left: 8px;
+  width: 30px;
+  text-align: center;
+  color: white;
+  border: none;
+`;
 
 export default CartItem;

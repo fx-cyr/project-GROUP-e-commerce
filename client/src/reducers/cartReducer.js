@@ -14,18 +14,25 @@ export const cartReducer = (state = initialState, action) => {
             ? currentItemFromState.quantity + 1
             : 1,
         },
-
-        // [action.item._id]: {
-        //   ...action.item,
-        //   numInStock: numInStock - 1,
-        // },
       };
     }
 
     case "REMOVE_ITEM": {
       const stateCopy = { ...state };
-      delete stateCopy[action.item._id];
-      return stateCopy;
+      delete stateCopy[action.item.id];
+      return {
+        ...stateCopy,
+      };
+    }
+
+    case "UPDATE_QUANTITY": {
+      return {
+        ...state,
+        [action.item.id]: {
+          ...state[action.item.id],
+          quantity: action.item.quantity,
+        },
+      };
     }
     default:
       return state;

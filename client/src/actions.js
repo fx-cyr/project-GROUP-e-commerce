@@ -20,6 +20,11 @@ export const removeItem = (item) => ({
   item,
 });
 
+export const updateQuantity = (item) => ({
+  type: "UPDATE_QUANTITY",
+  item,
+});
+
 //Companies data
 export const requestCompaniesData = () => ({
   type: "REQUEST_COMPANIES_DATA",
