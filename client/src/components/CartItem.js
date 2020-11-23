@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { removeItem } from "../actions";
 import { range } from "../utils";
 import Item from "./Item";
+import QuantitySelector from "./QuantitySelector";
 
 const CartItem = ({ name, quantity, id, numInStock }) => {
   const dispatch = useDispatch();
@@ -23,21 +24,7 @@ const CartItem = ({ name, quantity, id, numInStock }) => {
           />
         </RemoveBtn>
       </TopDiv>
-      {/* <QtyDiv>
-        Quantity: {quantity}
-        <Input type="quantity" />
-      </QtyDiv> */}
-      <Form>
-        <Label for="quantity">Quantity:</Label>
-        <Dropdown
-          type="number"
-          id="quantity"
-          name="quantity"
-          min="1"
-          max={numInStock}
-          step="1"
-        />
-      </Form>
+      <QuantitySelector numInStock={numInStock} />
     </Wrapper>
   );
 };
