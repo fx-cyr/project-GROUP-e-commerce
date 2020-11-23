@@ -37,43 +37,58 @@ const ItemDetails = () => {
       {!singleItem && "Loading"}
       {singleItem && (
         <Wrapper>
-          <ProductImg src={singleItem.imageSrc} />
+          <ImgWrapper>
+            <ProductImg src={singleItem.imageSrc} alt="Item name" />
+          </ImgWrapper>
           <ItemInfoWrapper>
             <div>
-              <Brand>Brand</Brand>
+              <Category>{singleItem.category}</Category>
               <ItemName>{singleItem.name}</ItemName>
             </div>
             <Cost>{singleItem.price}</Cost>
-            {/* <p>Quantity in stock: {singleItem.numInStock}</p> */}
+            <Stock>Quantity in stock: {singleItem.numInStock}</Stock>
             <Form>
               <QtyInput>Quantity:</QtyInput>
               <Select>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
+                <option>4</option>
+                <option>5</option>
               </Select>
             </Form>
-
-            {/* <PurchaseButton onClick={() => dispatch(addItems({ singleItem }))}>
+            <PurchaseButton onClick={() => dispatch(addItems({ singleItem }))}>
               Add to Cart
-            </PurchaseButton> */}
+            </PurchaseButton>
           </ItemInfoWrapper>
-          {/* <Cart /> */}
+          <CartWrapper>
+            <Cart />
+          </CartWrapper>
         </Wrapper>
       )}
     </>
   );
 };
 
+const CartWrapper = styled.div`
+  width: 15%;
+  justify-content: center;
+`;
+
 const Wrapper = styled.div`
   display: flex;
-  margin: 40px 65px;
-  margin-left: 120px;
+  margin-left: 100px;
+`;
+
+const ImgWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 const ProductImg = styled.img`
-  height: 650px;
-  width: auto;
+  margin-top: 60px;
+  height: 55vh;
+  width: 35vw;
   border-radius: 12px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 `;
@@ -81,20 +96,27 @@ const ProductImg = styled.img`
 const ItemInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  margin: 60px;
+  margin: 50px 0 50px 50px;
 `;
 
-const Brand = styled.h2`
+const Category = styled.h2`
   font-size: 1.8rem;
+  padding-bottom: 15px;
 `;
 
 const ItemName = styled.h1`
   font-size: 2.3rem;
+  max-width: 70%;
+  padding-bottom: 15px;
 `;
 
 const Cost = styled.p`
   font-size: 1.8rem;
+  padding-bottom: 15px;
+`;
+
+const Stock = styled.p`
+  padding-bottom: 15px;
 `;
 
 const QtyInput = styled.div``;
@@ -102,6 +124,7 @@ const QtyInput = styled.div``;
 const Form = styled.form`
   display: flex;
   align-items: center;
+  padding-bottom: 10%;
 `;
 
 const Select = styled.select`
@@ -114,7 +137,7 @@ const PurchaseButton = styled.button`
   color: white;
   font-size: 1.2rem;
   border: none;
-  height: 60px;
+  height: 80px;
   width: 230px;
   border-radius: 12px;
   padding: 10px 40px;
