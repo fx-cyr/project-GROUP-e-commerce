@@ -57,9 +57,16 @@ const ItemDetails = () => {
                 <option>5</option>
               </Select>
             </Form>
-            <PurchaseButton onClick={() => dispatch(addItems({ singleItem }))}>
-              Add to Cart
-            </PurchaseButton>
+            {singleItem.numInStock > 0 && (
+              <>
+                <PurchaseButton onClick={() => dispatch(addItems(singleItem))}>
+                  Add to Cart
+                </PurchaseButton>
+              </>
+            )}
+            {singleItem.numInStock <= 0 && (
+              <OOSButton disabled> Out of stock</OOSButton>
+            )}
           </ItemInfoWrapper>
           <CartWrapper>
             <Cart />
@@ -71,7 +78,7 @@ const ItemDetails = () => {
 };
 
 const CartWrapper = styled.div`
-  width: 15%;
+  width: 20%;
   justify-content: center;
 `;
 
@@ -147,6 +154,18 @@ const PurchaseButton = styled.button`
   &:hover {
     background-color: ${colorsSet.primaryHover};
   }
+`;
+
+const OOSButton = styled.button`
+  background: ${colorsSet.primaryHover};
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  height: 80px;
+  width: 230px;
+  border-radius: 12px;
+  padding: 10px 40px;
+  cursor: not-allowed;
 `;
 
 export default ItemDetails;
