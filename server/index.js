@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 
 const items = require("./data/items.json");
+const companies = require("./data/companies.json");
 
 const PORT = 4000;
 
@@ -27,7 +28,7 @@ express()
   .use("/", express.static(__dirname + "/"))
 
   // Endpoints that retrieves all items
-  .get("/items", (req, res) => {
+  .get("/api/items", (req, res) => {
     const data = items;
     res.status(200).json({
       status: 200,
@@ -37,7 +38,7 @@ express()
   })
 
   // Endpoints that retrieves a specific
-  .get("/items/:itemId", (req, res) => {
+  .get("/api/items/:itemId", (req, res) => {
     const { itemId } = req.params;
     const singleItem = items.filter((item) => {
       return item._id === Number(`${req.params.itemId}`);
@@ -47,7 +48,7 @@ express()
       res.status(200).json({
         status: 200,
         message: `Successfully retrieved item ${itemId} `,
-        data: singleItem,
+        item: singleItem,
       });
     } else {
       res.status(404).json({
@@ -58,29 +59,57 @@ express()
   })
 
   // Endpoints that updates the quantity about specific item
-  .post("/items/:itemId", (req, res) => {
-    // CODE HERE
+  .post("/api/items/:itemId", (req, res) => {
+    const { itemId } = req.params;
+    const { updatedStock } = req.body;
+    const itemToUpdate = items.filter((item) => {
+      return item._id === Number(`${req.params.itemId}`);
+    });
+
+    if (!itemToUpdate) {
+      res.status(404).json({
+        status: 404,
+        message: "Item not found",
+      });
+    } else if (!updatedStock) {
+      res.status(404).json({
+        status: 404,
+        message: "Missing the quantity to update",
+      });
+    }
+    itemToUpdate.numInStock = updatedStock;
     res.status(200).json({
       status: 200,
       message: `Successfully updated quantity of item ${itemId} `,
+      data: itemToUpdate,
     });
   })
 
-  // Endpoints that retrieves a list of all companies
-  .get("/companies", (req, res) => {
-    // CODE HERE
+  // Endpoints that retrieves a list of companies filtered by country
+  .get("/api/companies", (req, res) => {
+    const data = companies;
     res.status(200).json({
       status: 200,
       message: `Successfully retrieved all companies`,
+      companies: data,
     });
   })
 
   // Endpoints that retrieves a list of all companies
-  .get("/companies/:companyId", (req, res) => {
-    // CODE HERE
+  .get("api/companies/:companyId", (req, res) => {
+    const { companyId } = req.params;
+    const filteredCompanies = items.filter((company) => {
+      return company._id === Number(`${req.params.itemId}`);
+    });
+    if (!filteredCompanies)
+      return res.status(404).json({
+        status: 404,
+        message: "Could not find any company meeting the requirements",
+      });
     res.status(200).json({
       status: 200,
       message: `Successfully retrieved ${companyId}'s info`,
+      companies: filteredCompanies,
     });
   })
 
