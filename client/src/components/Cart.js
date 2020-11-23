@@ -19,6 +19,8 @@ const Cart = () => {
   });
   total = total.toFixed(2);
 
+  console.log(storeItems);
+
   return (
     <Wrapper>
       <Title>Your Cart</Title>
