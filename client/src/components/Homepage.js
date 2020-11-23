@@ -12,7 +12,7 @@ export const Homepage = ({ category, setCategory }) => {
       const res = await fetch("/api/items");
       const json = await res.json();
       if (res.ok) {
-        console.log(json);
+        // console.log(json);
         setAllItems(json.items);
       }
     } catch {
