@@ -47,16 +47,6 @@ const ItemDetails = () => {
             </div>
             <Cost>{singleItem.price}</Cost>
             <Stock>Quantity in stock: {singleItem.numInStock}</Stock>
-            <Form>
-              <QtyInput>Quantity:</QtyInput>
-              <Select>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </Select>
-            </Form>
             {singleItem.numInStock > 0 && (
               <>
                 <PurchaseButton onClick={() => dispatch(addItems(singleItem))}>
@@ -103,40 +93,27 @@ const ProductImg = styled.img`
 const ItemInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 50px 0 50px 50px;
+  margin: 60px 0 50px 50px;
 `;
 
 const Category = styled.h2`
   font-size: 1.8rem;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 `;
 
 const ItemName = styled.h1`
   font-size: 2.3rem;
   max-width: 70%;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 `;
 
 const Cost = styled.p`
   font-size: 1.8rem;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 `;
 
 const Stock = styled.p`
-  padding-bottom: 15px;
-`;
-
-const QtyInput = styled.div``;
-
-const Form = styled.form`
-  display: flex;
-  align-items: center;
   padding-bottom: 10%;
-`;
-
-const Select = styled.select`
-  margin-left: 10px;
-  padding: 5px;
 `;
 
 const PurchaseButton = styled.button`
