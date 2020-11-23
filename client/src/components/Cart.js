@@ -34,6 +34,7 @@ const Cart = () => {
               price={item.price.replace("$", "")}
               quantity={item.quantity}
               id={item._id}
+              numInStock={item.numInStock}
             />
           );
         })}
