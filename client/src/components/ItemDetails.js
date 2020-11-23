@@ -4,6 +4,7 @@ import { colorsSet } from "../Global/Colors";
 import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
 import { addItems } from "../actions";
+import Cart from "./Cart";
 
 const ItemDetails = () => {
   let { itemId } = useParams();
@@ -43,7 +44,7 @@ const ItemDetails = () => {
               <ItemName>{singleItem.name}</ItemName>
             </div>
             <Cost>{singleItem.price}</Cost>
-            <p>Quantity in stock: {singleItem.numInStock}</p>
+            {/* <p>Quantity in stock: {singleItem.numInStock}</p> */}
             <Form>
               <QtyInput>Quantity:</QtyInput>
               <Select>
@@ -53,10 +54,11 @@ const ItemDetails = () => {
               </Select>
             </Form>
 
-            <PurchaseButton onClick={() => dispatch(addItems({ singleItem }))}>
+            {/* <PurchaseButton onClick={() => dispatch(addItems({ singleItem }))}>
               Add to Cart
-            </PurchaseButton>
+            </PurchaseButton> */}
           </ItemInfoWrapper>
+          {/* <Cart /> */}
         </Wrapper>
       )}
     </>

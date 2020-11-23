@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 
 const items = require("./data/items.json");
+const companies = require("./data/companies.json");
 
 const PORT = 4000;
 
@@ -66,21 +67,31 @@ express()
     });
   })
 
-  // Endpoints that retrieves a list of all companies
+  // Endpoints that retrieves a list of companies filtered by country
   .get("api/companies", (req, res) => {
-    // CODE HERE
+    const data = companies;
     res.status(200).json({
       status: 200,
       message: `Successfully retrieved all companies`,
+      companies: data,
     });
   })
 
   // Endpoints that retrieves a list of all companies
   .get("api/companies/:companyId", (req, res) => {
-    // CODE HERE
+    const { companyId } = req.params;
+    const filteredCompanies = items.filter((company) => {
+      return company._id === Number(`${req.params.itemId}`);
+    });
+    if (!filteredCompanies)
+      return res.status(404).json({
+        status: 404,
+        message: "Could not find any company meeting the requirements",
+      });
     res.status(200).json({
       status: 200,
       message: `Successfully retrieved ${companyId}'s info`,
+      companies: filteredCompanies,
     });
   })
 
