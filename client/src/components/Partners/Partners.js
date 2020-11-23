@@ -39,7 +39,7 @@ export const Partners = ({ allCompanies }) => {
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
-  margin-top: 50px;
+  margin: 50px 0;
 `;
 
 const CompaniesColumns = styled.div`
