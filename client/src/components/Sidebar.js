@@ -15,6 +15,7 @@ export const Sidebar = ({ setCategory }) => {
     <SidebarWrapper>
       <SubNav>
         <UnorderedList>
+          <ItemView>Shop by Category</ItemView>
           <ListItems>
             <NavigationLink
               onClick={() => {
@@ -22,7 +23,7 @@ export const Sidebar = ({ setCategory }) => {
               }}
               to="/home/all"
             >
-              <Bold>All Category</Bold>
+              <Main>View all products</Main>
             </NavigationLink>
           </ListItems>
           <ListItems>
@@ -107,6 +108,117 @@ export const Sidebar = ({ setCategory }) => {
             </NavigationLink>
           </ListItems>
         </UnorderedList>
+        <Divider />
+        <UnorderedList>
+          <ItemView>Shop by Body Location</ItemView>
+          <ListItems>
+            <NavigationLink
+              onClick={() => {
+                setCategory("all");
+              }}
+              to="/home/all"
+            >
+              <Main>View all products</Main>
+            </NavigationLink>
+          </ListItems>
+          <ListItems>
+            <NavigationLink
+              onClick={() => {
+                setCategory("arms");
+              }}
+              to="/home/arms"
+            >
+              {" "}
+              <Bold>Arms</Bold>
+            </NavigationLink>
+          </ListItems>
+          <ListItems>
+            <NavigationLink
+              onClick={() => {
+                setCategory("chest");
+              }}
+              to="/home/chest"
+            >
+              <Bold>Chest</Bold>
+            </NavigationLink>
+          </ListItems>
+          <ListItems>
+            <NavigationLink
+              onClick={() => {
+                setCategory("feet");
+              }}
+              to="/home/feet"
+            >
+              <Bold>Feet</Bold>
+            </NavigationLink>
+          </ListItems>
+          <ListItems>
+            <NavigationLink
+              onClick={() => {
+                setCategory("hands");
+              }}
+              to="/home/hands"
+            >
+              {" "}
+              <Bold>Hands</Bold>
+            </NavigationLink>
+          </ListItems>
+          <ListItems>
+            <NavigationLink
+              onClick={() => {
+                setCategory("head");
+              }}
+              to="/home/head"
+            >
+              {" "}
+              <Bold>Head</Bold>
+            </NavigationLink>
+          </ListItems>
+          <ListItems>
+            <NavigationLink
+              onClick={() => {
+                setCategory("neck");
+              }}
+              to="/home/neck"
+            >
+              {" "}
+              <Bold>Neck</Bold>
+            </NavigationLink>
+          </ListItems>
+          <ListItems>
+            <NavigationLink
+              onClick={() => {
+                setCategory("torso");
+              }}
+              to="/home/torso"
+            >
+              {" "}
+              <Bold>Torso</Bold>
+            </NavigationLink>
+          </ListItems>
+          <ListItems>
+            <NavigationLink
+              onClick={() => {
+                setCategory("waist");
+              }}
+              to="/home/waist"
+            >
+              {" "}
+              <Bold>Waist</Bold>
+            </NavigationLink>
+          </ListItems>
+          <ListItems>
+            <NavigationLink
+              onClick={() => {
+                setCategory("wrist");
+              }}
+              to="/home/wrist"
+            >
+              {" "}
+              <Bold>Wrist</Bold>
+            </NavigationLink>
+          </ListItems>
+        </UnorderedList>
       </SubNav>
     </SidebarWrapper>
   );
@@ -126,9 +238,15 @@ const Bold = styled.span`
   margin-right: 15px;
 `;
 
+const Main = styled.span`
+  font-weight: bold;
+  margin-right: 15px;
+`;
+
 const NavigationLink = styled(NavLink)`
+  font-size: 14px;
   color: black;
-  padding: 10px;
+  padding: 5px 10px;
 
   text-decoration: none;
 
@@ -154,4 +272,17 @@ const SubNav = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 10px;
+`;
+
+const ItemView = styled.div`
+  font-size: 18px;
+  color: black;
+  padding: 5px 10px;
+`;
+
+const Divider = styled.div`
+  text-align: center;
+  border: 1px dashed lightgrey;
+  margin: 20px 10px;
+  width: 50%;
 `;

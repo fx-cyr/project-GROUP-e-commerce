@@ -70,24 +70,28 @@ const ImageWrapper = styled.div`
   overflow: hidden;
   border-radius: 12px;
   border: 3px solid rgba(0, 0, 0, 0.1);
+  height: 200px;
 `;
 const Image = styled.img`
-  width: 150px;
+  padding: 20px;
   height: auto;
   display: block;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: rotate(5deg) scale(1.1);
+  }
 `;
 
 const Title = styled.h2`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
   margin: 0;
   margin-bottom: 16px;
   margin-top: 8px;
   font-size: 14px;
   font-weight: 600;
-`;
-
-const CompanyName = styled.p`
-  margin-top: 8px;
-  font-style: italic;
 `;
 
 const Hyperlink = styled.p`
