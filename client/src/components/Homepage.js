@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Cart from "./Cart";
 import { Sidebar } from "./Sidebar";
 import Item from "./Item";
+import Entertainement from "./BannersImg/Entertainement.jpg";
 
 export const Homepage = ({ category, setCategory }) => {
   const [allItems, setAllItems] = useState([]);
@@ -36,12 +37,21 @@ export const Homepage = ({ category, setCategory }) => {
             return <Item key={item._id} item={item} />;
           })}
 
-        {category === "entertainement" &&
-          allItems.map((item) => {
-            if (item.category === "Entertainment") {
-              return <Item key={item._id} item={item} />;
-            }
-          })}
+        {category === "entertainement" && (
+          <div>
+            <BannerImg src={Entertainement} />
+            {allItems.map((item) => {
+              if (item.category === "Entertainment") {
+                return (
+                  <div>
+                    <Item key={item._id} item={item} />
+                  </div>
+                );
+              }
+            })}
+          </div>
+        )}
+
         {category === "fitness" &&
           allItems.map((item) => {
             if (item.category === "Fitness") {
@@ -106,6 +116,11 @@ const ItemDisplayGridWrapper = styled.div`
   flex: 1 0 21%; /* explanation below */
   margin: 5px;
   height: 100px;
+`;
+
+const BannerImg = styled.img`
+  max-width: 100%;
+  max-height: 500px;
 `;
 
 const CartWrapper = styled.div`
