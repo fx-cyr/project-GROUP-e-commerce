@@ -2,19 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import { colorsSet } from "../Global/Colors";
 
-export const PurchaseConfirmation = () => {
+export const PurchaseConfirmation = ({ fullName }) => {
   return (
     <Wrapper>
       <ConfirmationCard>
         <ConfirmationTitle>
-          Your purchased is confirmed. Thank you for choosing DasWatches!
+          Your purchased is confirmed, name. Thank you for choosing DasWatches!
         </ConfirmationTitle>
         <ConfirmationContainer>
           <ConfirmationDetails>
             <span>Item:</span>
           </ConfirmationDetails>
           <ConfirmationDetails>
-            <span>Name:</span>
+            <span>Name:{fullName}</span>
           </ConfirmationDetails>
           <ConfirmationDetails>
             <span>Email:</span>

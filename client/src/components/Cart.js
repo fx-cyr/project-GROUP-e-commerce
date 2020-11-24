@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { colorsSet } from "../Global/Colors";
 import CartItem from "./CartItem";
 import { getStoreItemArray } from "../reducers/cartReducer";
 import { useSelector } from "react-redux";
+import { PurchaseModal } from "./PurchaseModal/PurchaseModal";
 
 const Cart = () => {
+  const [showModal, setShowModal] = useState(false);
+  const handleModalPop = () => {
+    setShowModal(true);
+  };
   //Create an Array of items in the cart
   const storeItems = useSelector(getStoreItemArray);
   // console.log(storeItems);
@@ -22,41 +27,54 @@ const Cart = () => {
   // console.log(storeItems);
 
   return (
-    <Wrapper>
-      <Title>Your Cart</Title>
-      <NumOfItems>{storeItems.length} Item(s)</NumOfItems>
-
-      {/* Mapping in the cart array to create cart items components */}
-      {storeItems &&
-        storeItems.map((item, index) => {
-          return (
-            <CartItem
-              key={index}
-              name={item.name}
-              price={item.price.replace("$", "")}
-              quantity={item.quantity}
-              id={item._id}
-              numInStock={item.numInStock}
-            />
-          );
-        })}
-      <TotalCostAndButton>
-        <Total>
-          Total: <strong>${total}</strong>
-        </Total>
-        <PurchaseBtn>Purchase</PurchaseBtn>
-      </TotalCostAndButton>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <Title>Your Cart</Title>
+        <NumOfItems>{storeItems.length} Item(s)</NumOfItems>
+        {/* Mapping in the cart array to create cart items components */}
+        {storeItems &&
+          storeItems.map((item, index) => {
+            return (
+              <CartItem
+                key={index}
+                name={item.name}
+                price={item.price.replace("$", "")}
+                quantity={item.quantity}
+                id={item._id}
+                numInStock={item.numInStock}
+              />
+            );
+          })}
+        <TotalCostAndButton>
+          <Total>
+            Total: <strong>${total}</strong>
+          </Total>
+          {storeItems.length > 0 ? (
+            <PurchaseBtn
+              onClick={() => {
+                handleModalPop();
+              }}
+            >
+              Purchase
+            </PurchaseBtn>
+          ) : (
+            <PurchaseBtn disabled>Purchase</PurchaseBtn>
+          )}
+        </TotalCostAndButton>
+      </Wrapper>
+      {showModal && <PurchaseModal total={total} storeItems={storeItems} />}
+    </>
   );
 };
 
 const Wrapper = styled.div`
+  width: 100%;
   background: #e9f8fa;
   display: flex;
   position: sticky;
   flex-direction: column;
   color: black;
-  min-height: 100vh;
+  min-height: 100%;
   overflow: hidden;
   padding: 15px;
   border-left: 2px solid ${colorsSet.primary};
@@ -72,8 +90,6 @@ const NumOfItems = styled.span`
 `;
 
 const TotalCostAndButton = styled.div`
-  width: 9vw;
-  height: 10vh;
   background: white;
   display: flex;
   position: fixed;
