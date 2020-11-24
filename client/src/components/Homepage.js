@@ -11,6 +11,11 @@ import Lifestyle from "./BannersImg/Lifestyle2.0.jpeg";
 import Medical from "./BannersImg/Medical.jpg";
 import Pets from "./BannersImg/Pets.jpg";
 import All from "./BannersImg/All2.jpeg";
+import Arms from "./BannersImg/Arm.jpg";
+import Others from "./BannersImg/Others.jpg";
+import Feet from "./BannersImg/Foot.jpeg";
+import Head from "./BannersImg/Head.jpg";
+import Wrist from "./BannersImg/Wrist.jpg";
 
 export const Homepage = ({ category, setCategory }) => {
   const [allItems, setAllItems] = useState([]);
@@ -179,69 +184,168 @@ export const Homepage = ({ category, setCategory }) => {
             })}
           </ItemGrid>
         )}
-        {category === "arms" &&
-          // TODO Add pets&animals Components
-          allItems.map((item) => {
-            if (item.body_location === "Arms") {
-              return <Item key={item._id} item={item} />;
-            }
-          })}
-        {category === "chest" &&
-          // TODO Add pets&animals Components
-          allItems.map((item) => {
-            if (item.body_location === "Chest") {
-              return <Item key={item._id} item={item} />;
-            }
-          })}
-        {category === "feet" &&
-          // TODO Add pets&animals Components
-          allItems.map((item) => {
-            if (item.body_location === "Feet") {
-              return <Item key={item._id} item={item} />;
-            }
-          })}
-        {category === "hands" &&
-          // TODO Add pets&animals Components
-          allItems.map((item) => {
-            if (item.body_location === "Hands") {
-              return <Item key={item._id} item={item} />;
-            }
-          })}
-        {category === "head" &&
-          // TODO Add pets&animals Components
-          allItems.map((item) => {
-            if (item.body_location === "Head") {
-              return <Item key={item._id} item={item} />;
-            }
-          })}
-        {category === "neck" &&
-          // TODO Add pets&animals Components
-          allItems.map((item) => {
-            if (item.body_location === "Neck") {
-              return <Item key={item._id} item={item} />;
-            }
-          })}
-        {category === "torso" &&
-          // TODO Add pets&animals Components
-          allItems.map((item) => {
-            if (item.body_location === "Torso") {
-              return <Item key={item._id} item={item} />;
-            }
-          })}
-        {category === "waist" &&
-          // TODO Add pets&animals Components
-          allItems.map((item) => {
-            if (item.body_location === "Waist") {
-              return <Item key={item._id} item={item} />;
-            }
-          })}
-        {category === "wrist" &&
-          // TODO Add pets&animals Components
-          allItems.map((item) => {
-            if (item.body_location === "Wrist") {
-              return <Item key={item._id} item={item} />;
-            }
-          })}
+        {category === "arms" && (
+          <ItemGrid>
+            <BannerDivImg img={Arms}>
+              <Overlay>
+                <CategoryName>Arms</CategoryName>
+              </Overlay>
+            </BannerDivImg>
+            {allItems.map((item) => {
+              if (item.body_location === "Arms") {
+                return (
+                  <div>
+                    <Item key={item._id} item={item} />
+                  </div>
+                );
+              }
+            })}
+          </ItemGrid>
+        )}
+        {category === "chest" && (
+          <ItemGrid>
+            <BannerDivImg img={Others}>
+              <Overlay>
+                <CategoryName>Chest</CategoryName>
+              </Overlay>
+            </BannerDivImg>
+            {allItems.map((item) => {
+              if (item.body_location === "Chest") {
+                return (
+                  <div>
+                    <Item key={item._id} item={item} />
+                  </div>
+                );
+              }
+            })}
+          </ItemGrid>
+        )}
+        {category === "feet" && (
+          <ItemGrid>
+            <BannerDivImg img={Feet}>
+              <Overlay>
+                <CategoryName>Feet</CategoryName>
+              </Overlay>
+            </BannerDivImg>
+            {allItems.map((item) => {
+              if (item.body_location === "Feet") {
+                return (
+                  <div>
+                    <Item key={item._id} item={item} />
+                  </div>
+                );
+              }
+            })}
+          </ItemGrid>
+        )}
+        {category === "hands" && (
+          <ItemGrid>
+            <BannerDivImg img={Others}>
+              <Overlay>
+                <CategoryName>Hands</CategoryName>
+              </Overlay>
+            </BannerDivImg>
+            {allItems.map((item) => {
+              if (item.body_location === "Hands") {
+                return (
+                  <div>
+                    <Item key={item._id} item={item} />
+                  </div>
+                );
+              }
+            })}
+          </ItemGrid>
+        )}
+        {category === "head" && (
+          <ItemGrid>
+            <BannerDivImg img={Head}>
+              <Overlay>
+                <CategoryName>Head</CategoryName>
+              </Overlay>
+            </BannerDivImg>
+            {allItems.map((item) => {
+              if (item.body_location === "Head") {
+                return (
+                  <div>
+                    <Item key={item._id} item={item} />
+                  </div>
+                );
+              }
+            })}
+          </ItemGrid>
+        )}
+        {category === "neck" && (
+          <ItemGrid>
+            <BannerDivImg img={Others}>
+              <Overlay>
+                <CategoryName>Neck</CategoryName>
+              </Overlay>
+            </BannerDivImg>
+            {allItems.map((item) => {
+              if (item.body_location === "Neck") {
+                return (
+                  <div>
+                    <Item key={item._id} item={item} />
+                  </div>
+                );
+              }
+            })}
+          </ItemGrid>
+        )}
+        {category === "torso" && (
+          <ItemGrid>
+            <BannerDivImg img={Others}>
+              <Overlay>
+                <CategoryName>Torso</CategoryName>
+              </Overlay>
+            </BannerDivImg>
+            {allItems.map((item) => {
+              if (item.body_location === "Torso") {
+                return (
+                  <div>
+                    <Item key={item._id} item={item} />
+                  </div>
+                );
+              }
+            })}
+          </ItemGrid>
+        )}
+        {category === "waist" && (
+          <ItemGrid>
+            <BannerDivImg img={Others}>
+              <Overlay>
+                <CategoryName>Waist</CategoryName>
+              </Overlay>
+            </BannerDivImg>
+            {allItems.map((item) => {
+              if (item.body_location === "Waist") {
+                return (
+                  <div>
+                    <Item key={item._id} item={item} />
+                  </div>
+                );
+              }
+            })}
+          </ItemGrid>
+        )}
+        {category === "wrist" && (
+          <ItemGrid>
+            <BannerDivImg img={Wrist}>
+              <Overlay>
+                <CategoryName>Wrist</CategoryName>
+              </Overlay>
+            </BannerDivImg>
+            {allItems.map((item) => {
+              if (item.body_location === "Wrist") {
+                return (
+                  <div>
+                    <Item key={item._id} item={item} />
+                  </div>
+                );
+              }
+            })}
+          </ItemGrid>
+        )}
       </ItemDisplayGridWrapper>
       <CartWrapper>
         <Cart />
