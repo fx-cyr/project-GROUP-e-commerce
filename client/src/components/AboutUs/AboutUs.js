@@ -28,7 +28,7 @@ export const AboutUs = () => {
                   <AiOutlineLinkedin />
                 </Logo>
                 <ProfilePagesLinks
-                  href="www.linkedin.com/in/samuel-st-pierre-larivière"
+                  href="https://www.linkedin.com/in/samuel-st-pierre-larivi%C3%A8re/"
                   target="_blank"
                 >
                   www.linkedin.com/in/samuel-st-pierre-larivière
