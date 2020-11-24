@@ -85,10 +85,75 @@ export const Homepage = ({ category, setCategory }) => {
               return <Item key={item._id} item={item} />;
             }
           })}
+
         {category === "pets&animals" &&
           // TODO Add pets&animals Components
           allItems.map((item) => {
-            if (item.category === "Pets & Animals") {
+            if (item.category === "Pets and Animals") {
+              return <Item key={item._id} item={item} />;
+            }
+          })}
+
+        {category === "arms" &&
+          // TODO Add pets&animals Components
+          allItems.map((item) => {
+            if (item.body_location === "Arms") {
+              return <Item key={item._id} item={item} />;
+            }
+          })}
+        {category === "chest" &&
+          // TODO Add pets&animals Components
+          allItems.map((item) => {
+            if (item.body_location === "Chest") {
+              return <Item key={item._id} item={item} />;
+            }
+          })}
+        {category === "feet" &&
+          // TODO Add pets&animals Components
+          allItems.map((item) => {
+            if (item.body_location === "Feet") {
+              return <Item key={item._id} item={item} />;
+            }
+          })}
+        {category === "hands" &&
+          // TODO Add pets&animals Components
+          allItems.map((item) => {
+            if (item.body_location === "Hands") {
+              return <Item key={item._id} item={item} />;
+            }
+          })}
+        {category === "head" &&
+          // TODO Add pets&animals Components
+          allItems.map((item) => {
+            if (item.body_location === "Head") {
+              return <Item key={item._id} item={item} />;
+            }
+          })}
+        {category === "neck" &&
+          // TODO Add pets&animals Components
+          allItems.map((item) => {
+            if (item.body_location === "Neck") {
+              return <Item key={item._id} item={item} />;
+            }
+          })}
+        {category === "torso" &&
+          // TODO Add pets&animals Components
+          allItems.map((item) => {
+            if (item.body_location === "Torso") {
+              return <Item key={item._id} item={item} />;
+            }
+          })}
+        {category === "waist" &&
+          // TODO Add pets&animals Components
+          allItems.map((item) => {
+            if (item.body_location === "Waist") {
+              return <Item key={item._id} item={item} />;
+            }
+          })}
+        {category === "wrist" &&
+          // TODO Add pets&animals Components
+          allItems.map((item) => {
+            if (item.body_location === "Wrist") {
               return <Item key={item._id} item={item} />;
             }
           })}
