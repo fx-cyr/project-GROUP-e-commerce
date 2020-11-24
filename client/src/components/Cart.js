@@ -51,12 +51,13 @@ const Cart = () => {
 };
 
 const Wrapper = styled.div`
+  width: 100%;
   background: #e9f8fa;
   display: flex;
   position: sticky;
   flex-direction: column;
   color: black;
-  min-height: 100vh;
+  min-height: 100%;
   overflow: hidden;
   padding: 15px;
   border-left: 2px solid ${colorsSet.primary};
@@ -72,8 +73,6 @@ const NumOfItems = styled.span`
 `;
 
 const TotalCostAndButton = styled.div`
-  width: 9vw;
-  height: 10vh;
   background: white;
   display: flex;
   position: fixed;

@@ -69,6 +69,7 @@ const ItemDetails = () => {
 
 const CartWrapper = styled.div`
   width: 20%;
+  height: 100vh;
   justify-content: center;
 `;
 

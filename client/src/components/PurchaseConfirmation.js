@@ -7,7 +7,7 @@ export const PurchaseConfirmation = () => {
     <Wrapper>
       <ConfirmationCard>
         <ConfirmationTitle>
-          Your purchased is confirmed. Thank you for choosing DasWatches!
+          Your purchased is confirmed, name. Thank you for choosing DasWatches!
         </ConfirmationTitle>
         <ConfirmationContainer>
           <ConfirmationDetails>
