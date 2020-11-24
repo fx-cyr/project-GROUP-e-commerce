@@ -158,19 +158,20 @@ export const Homepage = ({ category, setCategory }) => {
 const HomePageWrapper = styled.div`
   position: relative;
   display: flex;
+  width: 100%;
+  height: 100%;
 `;
 
 const SidebarWrapper = styled.div`
-  width: 20%;
+  width: 15%;
 `;
 
 const ItemDisplayGridWrapper = styled.div`
-  width: 65%;
+  width: 70%;
   display: flex;
   flex-wrap: wrap;
   flex: 1 0 21%; /* explanation below */
   margin: 5px;
-  height: 100px;
 `;
 
 const CartWrapper = styled.div`
