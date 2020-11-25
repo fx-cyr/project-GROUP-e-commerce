@@ -8,15 +8,18 @@ import { PurchaseModal } from "./PurchaseModal/PurchaseModal";
 
 const Cart = () => {
   const [showModal, setShowModal] = useState(false);
+
   const handleModalPop = () => {
     setShowModal(true);
   };
   //Create an Array of items in the cart
   const storeItems = useSelector(getStoreItemArray);
+  const [cartArr, setCartArr] = useState(storeItems);
   // console.log(storeItems);
 
   //Calculate the Cart total
   let total = 0;
+
   storeItems.forEach((item) => {
     let itemPrice = item.price.replace("$", "");
     total += itemPrice * item.quantity;
@@ -24,7 +27,7 @@ const Cart = () => {
   });
   total = total.toFixed(2);
 
-  console.log(storeItems);
+  // console.log(storeItems);
 
   return (
     <>
@@ -53,6 +56,7 @@ const Cart = () => {
             <PurchaseBtn
               onClick={() => {
                 handleModalPop();
+                console.log(showModal);
               }}
             >
               Purchase
@@ -62,18 +66,29 @@ const Cart = () => {
           )}
         </TotalCostAndButton>
       </Wrapper>
-      {showModal && <PurchaseModal total={total} storeItems={storeItems} />}
+      {showModal && (
+        <PurchaseModal
+          total={total}
+          storeItems={storeItems}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          cartArr={cartArr}
+          setCartArr={setCartArr}
+        />
+      )}
     </>
   );
 };
 
 const Wrapper = styled.div`
+  width: 100%;
+  height: 100vh;
   background: #e9f8fa;
   display: flex;
   position: sticky;
   flex-direction: column;
   color: black;
-  min-height: 100vh;
+  min-height: 100%;
   overflow: hidden;
   padding: 15px;
   border-left: 2px solid ${colorsSet.primary};
@@ -89,8 +104,6 @@ const NumOfItems = styled.span`
 `;
 
 const TotalCostAndButton = styled.div`
-  width: 9vw;
-  height: 10vh;
   background: white;
   display: flex;
   position: fixed;
@@ -99,7 +112,7 @@ const TotalCostAndButton = styled.div`
   flex-direction: column;
   bottom: 30px;
   box-shadow: 0px 8px 23px -2px rgba(22, 98, 108, 0.3);
-  padding: 25px;
+  padding: 25px 15px 25px 15px;
   border-radius: 12px;
   transition: 0.2s;
 

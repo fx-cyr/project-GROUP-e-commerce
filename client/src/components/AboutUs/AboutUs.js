@@ -3,20 +3,33 @@ import styled from "styled-components";
 import samProfile from "./DevPictures/LinkedProfile.jpg";
 import { AiOutlineLinkedin, AiOutlineGithub } from "react-icons/ai";
 import { colorsSet } from "../../Global/Colors";
+import fxProfile from "./DevPictures/FXDublin.jpg";
+import bradProfile from "./DevPictures/BradsProfilePic.png";
 
 export const AboutUs = () => {
   return (
     <Wrapper>
-      <Title>About the dev team</Title>
-      <Description>Brad's Cheesy Text</Description>
-      <ConcordiaLinkContainer>
+      <Title>
+        About the <ColorText>Dev Team</ColorText>
+      </Title>
+      <Description>
+        We are a group of passionate Full-Stack Web Development students at{" "}
         <ConcordiaLink
           href="https://concordiabootcamps.ca/?utm_term=concordia%20bootcamps&utm_campaign=Bloom%20-%20Brand%20-%20Concordia%20Bootcamps%20-%20EN&utm_source=adwords&utm_medium=ppc&hsa_acc=3838886679&hsa_cam=11302039329&hsa_grp=109744304846&hsa_ad=471481223441&hsa_src=g&hsa_tgt=kwd-974538943424&hsa_kw=concordia%20bootcamps&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=CjwKCAiA2O39BRBjEiwApB2Ikn4rABDF_gjtLM2O1RfUjULRLwfLLejIWJUxp2LO3KovchxEFBUBjxoCkY0QAvD_BwE"
           target="_blank"
         >
-          Concordia Bootcamp WebPage
+          Concordia Bootcamps
         </ConcordiaLink>
-      </ConcordiaLinkContainer>
+        . Utilizing both frontend and backend technologies, we built DasWatches
+        completely from scratch. Oh yeah, and this our first major, full-stack
+        e-commerce project!
+      </Description>
+
+      <CheckUsOut>
+        Check us out on <ColorText>GitHub</ColorText> and{" "}
+        <ColorText>LinkedIn</ColorText> for more awesome work!
+      </CheckUsOut>
+
       <TeamMemberContainer>
         <LeftColumn>
           <Member>
@@ -28,7 +41,7 @@ export const AboutUs = () => {
                   <AiOutlineLinkedin />
                 </Logo>
                 <ProfilePagesLinks
-                  href="www.linkedin.com/in/samuel-st-pierre-larivière"
+                  href="https://www.linkedin.com/in/samuel-st-pierre-larivi%C3%A8re/"
                   target="_blank"
                 >
                   www.linkedin.com/in/samuel-st-pierre-larivière
@@ -48,40 +61,60 @@ export const AboutUs = () => {
             </MemberInfos>
           </Member>
           <Member>
-            <MemberImg src={samProfile} />
+            <MemberImg src={fxProfile} />
             <MemberInfos>
-              <Name>Franky</Name>
+              <Name>François-Xavier Cyr</Name>
               <Linkedin>
                 <Logo>
                   <AiOutlineLinkedin />
                 </Logo>
-                <ProfilePagesLinks href="" target="_blank"></ProfilePagesLinks>
+                <ProfilePagesLinks
+                  href="https://www.linkedin.com/in/fran%C3%A7ois-xavier-cyr/"
+                  target="_blank"
+                >
+                  www.linkedin.com/in/francois-xavier-cyr/
+                </ProfilePagesLinks>
               </Linkedin>
               <GitHub>
                 <Logo>
                   <AiOutlineGithub />
                 </Logo>
-                <ProfilePagesLinks href="" target="_blank"></ProfilePagesLinks>
+                <ProfilePagesLinks
+                  href="https://github.com/fx-cyr"
+                  target="_blank"
+                >
+                  https://github.com/fx-cyr
+                </ProfilePagesLinks>
               </GitHub>
             </MemberInfos>
           </Member>
         </LeftColumn>
         <RightColumn>
           <Member>
-            <MemberImg src={samProfile} />
+            <MemberImg src={bradProfile} />
             <MemberInfos>
-              <Name>Brad</Name>
+              <Name>Bradley O'Leary</Name>
               <Linkedin>
                 <Logo>
                   <AiOutlineLinkedin />
                 </Logo>
-                <ProfilePagesLinks href="" target="_blank"></ProfilePagesLinks>
+                <ProfilePagesLinks
+                  href="https://www.linkedin.com/in/bradleyoleary/"
+                  target="_blank"
+                >
+                  www.linkedin.com/in/bradleyoleary
+                </ProfilePagesLinks>
               </Linkedin>
               <GitHub>
                 <Logo>
                   <AiOutlineGithub />
                 </Logo>
-                <ProfilePagesLinks href="" target="_blank"></ProfilePagesLinks>
+                <ProfilePagesLinks
+                  href="https://github.com/bradleyoleary"
+                  target="_blank"
+                >
+                  github.com/bradleyoleary
+                </ProfilePagesLinks>
               </GitHub>
             </MemberInfos>
           </Member>
@@ -117,15 +150,27 @@ const Title = styled.h1`
   text-align: center;
   font-weight: bolder;
   font-size: 3rem;
-  color: ${colorsSet.primary};
+  color: black;
 `;
+
+const ColorText = styled.span`
+  color: ${colorsSet.primary};
+  font-weight: bolder;
+`;
+
+// const TopContainer = styled.div`
+//   width: 100%;
+//   padding-left: 250px;
+//   padding-right: 250px;
+// `;
 
 const Description = styled.p`
   text-align: center;
   margin-top: 30px;
-  font-style: italic;
-  color: ${colorsSet.primaryHover};
+  color: black;
   font-size: 1.3rem;
+  line-height: 1.5em;
+  padding: 0px 275px 0px 275px;
 `;
 
 const TeamMemberContainer = styled.div`
@@ -134,15 +179,16 @@ const TeamMemberContainer = styled.div`
   margin-top: 50px;
 `;
 
-const ConcordiaLinkContainer = styled.div`
+const CheckUsOut = styled.div`
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
+  font-size: 1.3rem;
 `;
 
 const ConcordiaLink = styled.a`
-  color: ${colorsSet.primaryHover};
+  color: ${colorsSet.primary};
   font-weight: bolder;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 `;
 
 const LeftColumn = styled.div`
@@ -158,7 +204,7 @@ const Member = styled.div`
   display: flex;
   padding: 25px;
   margin-top: 40px;
-  box-shadow: 0px 10px 13px -7px #a5a5a5;
+  box-shadow: 0px 8px 23px -2px rgba(22, 98, 108, 0.3);
 `;
 
 const MemberImg = styled.img`
