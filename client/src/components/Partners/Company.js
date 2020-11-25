@@ -40,7 +40,7 @@ const Country = styled.div`
 `;
 
 const URL = styled.a`
-  color: ${colorsSet.primary};
+  color: ${colorsSet.secondary};
   font-size: 1.3rem;
   font-weight: bolder;
 `;

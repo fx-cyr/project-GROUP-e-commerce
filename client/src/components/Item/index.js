@@ -110,10 +110,10 @@ const OOSButton = styled.button`
   position: relative;
   display: block;
   width: 100%;
-  border-radius: 12px;
-  background: ${colorsSet.primaryHover};
-  color: white;
-  border: none;
+  border-radius: 35px;
+  background: none;
+  border: 2px solid ${colorsSet.outOfStock};
+  color: ${colorsSet.outOfStock};
   padding: 8px;
   font-size: 16px;
   font-weight: 600;
