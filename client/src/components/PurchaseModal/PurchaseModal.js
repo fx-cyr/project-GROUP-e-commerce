@@ -202,7 +202,13 @@ export const PurchaseModal = ({ storeItems, total }) => {
             Go back to shopping
           </HyperLink>
         </PurchaseInfo>
-        {confirmation && <PurchaseConfirmation fullName={fullName} />}
+        {confirmation && (
+          <PurchaseConfirmation
+            fullName={fullName}
+            emailAddress={emailAddress}
+            streetAdress={streetAdress}
+          />
+        )}
       </Wrapper>
       {/* </Modal> */}
     </>

@@ -98,7 +98,7 @@ const TotalCostAndButton = styled.div`
   flex-direction: column;
   bottom: 30px;
   box-shadow: 0px 8px 23px -2px rgba(22, 98, 108, 0.3);
-  padding: 25px;
+  padding: 25px 15px 25px 15px;
   border-radius: 12px;
   transition: 0.2s;
 
