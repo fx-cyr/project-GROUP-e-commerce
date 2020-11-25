@@ -20,9 +20,9 @@ export const AboutUs = () => {
         >
           Concordia Bootcamps
         </ConcordiaLink>
-        . Utilizing both frontend and backend technologies, we built DasWatches
-        completely from scratch. Oh yeah, and this our first major, full-stack
-        e-commerce project!
+        . Utilizing both frontend and backend technologies, we built
+        DasWearables completely from scratch. Oh yeah, and this our first major,
+        full-stack e-commerce project!
       </Description>
 
       <CheckUsOut>
@@ -154,7 +154,7 @@ const Title = styled.h1`
 `;
 
 const ColorText = styled.span`
-  color: ${colorsSet.primary};
+  color: ${colorsSet.secondary};
   font-weight: bolder;
 `;
 
@@ -186,7 +186,7 @@ const CheckUsOut = styled.div`
 `;
 
 const ConcordiaLink = styled.a`
-  color: ${colorsSet.primary};
+  color: ${colorsSet.secondary};
   font-weight: bolder;
   font-size: 1.3rem;
 `;
@@ -199,12 +199,12 @@ const RightColumn = styled.div``;
 
 const Member = styled.div`
   min-width: 500px;
-  border: 3px solid #15616d;
+  border: 3px solid ${colorsSet.secondary};
   border-radius: 10px;
   display: flex;
   padding: 25px;
   margin-top: 40px;
-  box-shadow: 0px 8px 23px -2px rgba(22, 98, 108, 0.3);
+  box-shadow: 0px 8px 23px -2px rgba(16, 172, 132, 0.3);
 `;
 
 const MemberImg = styled.img`

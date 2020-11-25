@@ -57,7 +57,7 @@ const Title = styled.p`
 `;
 
 const RemoveBtn = styled.button`
-  color: ${colorsSet.primary};
+  color: ${colorsSet.outOfStock};
   font-size: 1.3em;
   background: transparent;
   border: none;

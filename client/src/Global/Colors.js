@@ -1,4 +1,6 @@
 export const colorsSet = {
-  primary: "#15616d",
-  primaryHover: "#5b9098",
+  primary: "#202020",
+  secondary: "#05c46b",
+  primaryHover: "#0be881",
+  outOfStock: "#ee5253",
 };

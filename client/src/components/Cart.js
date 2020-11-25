@@ -83,7 +83,7 @@ const Cart = () => {
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background: #e9f8fa;
+  /* background-color: #e8fffb; */
   display: flex;
   position: sticky;
   flex-direction: column;
@@ -91,7 +91,11 @@ const Wrapper = styled.div`
   min-height: 100%;
   overflow: hidden;
   padding: 15px;
-  border-left: 2px solid ${colorsSet.primary};
+  box-shadow: 3px 2.8px 2.2px rgba(0, 0, 0, 0.07),
+    3px 6.7px 5.3px rgba(0, 0, 0, 0.05), 3px 12.5px 10px rgba(0, 0, 0, 0.042),
+    3px 22.3px 17.9px rgba(0, 0, 0, 0.035),
+    3px 41.8px 33.4px rgba(0, 0, 0, 0.028), 3px 100px 80px rgba(0, 0, 0, 0.02);
+  border-radius: 16px;
   align-items: center;
 `;
 
@@ -130,13 +134,13 @@ const PurchaseBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${colorsSet.primary};
+  background-color: ${colorsSet.secondary};
   color: white;
   font-size: 1.2rem;
   border: none;
   height: 60px;
   max-width: 10vw;
-  border-radius: 12px;
+  border-radius: 35px;
   padding: 10px 40px;
   cursor: pointer;
   transition: 0.2s;

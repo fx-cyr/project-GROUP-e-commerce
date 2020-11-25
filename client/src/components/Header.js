@@ -9,11 +9,11 @@ export const Header = ({ category }) => {
     <HeaderWrapper>
       <LeftHeaderContainer>
         <div>
+          <CompanyName>DasWearables</CompanyName>
+        </div>
+        <IconWrap>
           <TiWatch />
-        </div>
-        <div>
-          <CompanyName>DasWatches</CompanyName>
-        </div>
+        </IconWrap>
       </LeftHeaderContainer>
       <RightNavBar>
         <StyledUL>
@@ -54,23 +54,28 @@ const HeaderWrapper = styled.div`
   display: flex;
 `;
 
+const IconWrap = styled.div`
+  margin-top: 10px;
+  margin-left: 8px;
+`;
+
 const LeftHeaderContainer = styled.div`
-  font-size: 3rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   top: 10px;
-  margin-left: 8%;
+  margin-left: 1%;
 `;
 
 const CompanyName = styled.p`
-  font-style: italic;
+  /* font-style: italic; */
 `;
 
 const RightNavBar = styled.nav`
   position: absolute;
-  right: 5%;
-  top: 36px;
-  font-size: 1.7rem;
+  right: 1%;
+  top: 45px;
+  font-size: 1.2rem;
   display: flex;
 `;
 
@@ -78,13 +83,14 @@ const StyledNavLink = styled(NavLink)`
   color: white;
   text-decoration: none;
   margin-right: 40px;
-  font-style: italic;
+  /* font-style: italic; */
 
   &:hover {
   }
 
   &.active {
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    border-bottom: 2px solid ${colorsSet.secondary};
   }
 `;
 

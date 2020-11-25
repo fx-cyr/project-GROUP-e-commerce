@@ -247,10 +247,9 @@ const NavigationLink = styled(NavLink)`
   font-size: 14px;
   color: black;
   padding: 5px 10px;
-
   text-decoration: none;
-
   border-radius: 20px;
+
   &:hover {
     background-color: ${colorsSet.primaryHover};
   }

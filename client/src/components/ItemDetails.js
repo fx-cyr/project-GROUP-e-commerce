@@ -123,13 +123,13 @@ const Stock = styled.p`
 `;
 
 const PurchaseButton = styled.button`
-  background-color: ${colorsSet.primary};
+  background-color: ${colorsSet.secondary};
   color: white;
   font-size: 1.2rem;
   border: none;
   height: 80px;
   width: 230px;
-  border-radius: 12px;
+  border-radius: 35px;
   padding: 10px 40px;
   cursor: pointer;
   transition: 0.2s;
@@ -140,13 +140,13 @@ const PurchaseButton = styled.button`
 `;
 
 const OOSButton = styled.button`
-  background: ${colorsSet.primaryHover};
+  background: ${colorsSet.outOfStock};
   color: white;
   font-size: 1.2rem;
   border: none;
   height: 80px;
   width: 230px;
-  border-radius: 12px;
+  border-radius: 35px;
   padding: 10px 40px;
   cursor: not-allowed;
 `;
