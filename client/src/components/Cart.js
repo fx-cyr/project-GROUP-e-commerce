@@ -53,6 +53,7 @@ const Cart = () => {
             <PurchaseBtn
               onClick={() => {
                 handleModalPop();
+                console.log(showModal);
               }}
             >
               Purchase
@@ -62,7 +63,14 @@ const Cart = () => {
           )}
         </TotalCostAndButton>
       </Wrapper>
-      {showModal && <PurchaseModal total={total} storeItems={storeItems} />}
+      {showModal && (
+        <PurchaseModal
+          total={total}
+          storeItems={storeItems}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+      )}
     </>
   );
 };

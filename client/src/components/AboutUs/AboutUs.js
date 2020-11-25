@@ -3,6 +3,7 @@ import styled from "styled-components";
 import samProfile from "./DevPictures/LinkedProfile.jpg";
 import { AiOutlineLinkedin, AiOutlineGithub } from "react-icons/ai";
 import { colorsSet } from "../../Global/Colors";
+import fxProfile from "./DevPictures/FXDublin.jpg";
 
 export const AboutUs = () => {
   return (
@@ -48,20 +49,30 @@ export const AboutUs = () => {
             </MemberInfos>
           </Member>
           <Member>
-            <MemberImg src={samProfile} />
+            <MemberImg src={fxProfile} />
             <MemberInfos>
-              <Name>Franky</Name>
+              <Name>François-Xavier Cyr</Name>
               <Linkedin>
                 <Logo>
                   <AiOutlineLinkedin />
                 </Logo>
-                <ProfilePagesLinks href="" target="_blank"></ProfilePagesLinks>
+                <ProfilePagesLinks
+                  href="https://www.linkedin.com/in/fran%C3%A7ois-xavier-cyr/"
+                  target="_blank"
+                >
+                  www.linkedin.com/in/francois-xavier-cyr/
+                </ProfilePagesLinks>
               </Linkedin>
               <GitHub>
                 <Logo>
                   <AiOutlineGithub />
                 </Logo>
-                <ProfilePagesLinks href="" target="_blank"></ProfilePagesLinks>
+                <ProfilePagesLinks
+                  href="https://github.com/fx-cyr"
+                  target="_blank"
+                >
+                  https://github.com/fx-cyr
+                </ProfilePagesLinks>
               </GitHub>
             </MemberInfos>
           </Member>
