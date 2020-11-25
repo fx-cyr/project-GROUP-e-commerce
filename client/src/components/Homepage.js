@@ -371,7 +371,7 @@ const ItemDisplayGridWrapper = styled.div`
   flex-wrap: wrap;
   flex: 1 0 21%; /* explanation below */
   margin: 210px 40px 5px auto;
-  height: 100px;
+  height: 100%;
 `;
 
 const ItemGrid = styled.div`
