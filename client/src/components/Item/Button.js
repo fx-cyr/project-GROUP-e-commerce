@@ -13,6 +13,10 @@ const Button = styled.button`
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background: ${colorsSet.primaryHover};
+  }
 `;
 
 export default Button;

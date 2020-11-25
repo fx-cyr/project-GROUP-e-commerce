@@ -15,7 +15,7 @@ export const PurchaseConfirmation = ({
       <ConfirmationCard>
         <ConfirmationTitle>
           Hi <Name>{fullName}</Name>, your purchased is confirmed! Thank you for
-          choosing DasWatches.
+          choosing DasWearables.
         </ConfirmationTitle>
         <ConfirmationContainer>
           <ConfirmationDetails>
@@ -46,15 +46,15 @@ const Wrapper = styled.div`
 
 const ConfirmationCard = styled.div`
   padding: 40px;
-  border: 2px solid ${colorsSet.primary};
+  border: 2px solid ${colorsSet.secondary};
   border-radius: 16px;
-  box-shadow: 0px 8px 23px -2px rgba(22, 98, 108, 0.3);
+  box-shadow: 0px 8px 23px -2px rgba(16, 172, 132, 0.3);
 `;
 
 const ConfirmationTitle = styled.h1`
   color: black;
   font-size: 1.5em;
-  border-bottom: 4px solid ${colorsSet.primary};
+  border-bottom: 4px solid ${colorsSet.secondary};
   padding-bottom: 15px;
 `;
 
@@ -66,6 +66,6 @@ const ConfirmationDetails = styled.li`
 `;
 
 const Name = styled.span`
-  color: ${colorsSet.primary};
+  color: ${colorsSet.secondary};
   font-weight: bold;
 `;
