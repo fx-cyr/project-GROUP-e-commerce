@@ -388,8 +388,7 @@ const BannerDivImg = styled.div`
   font-style: italic;
   text-align: center;
   padding-top: 55px;
-  max-width: 1220px;
-  min-width: 1220px;
+  width: 65%;
   min-height: 205px;
   max-height: 205px;
   background-size: cover;
@@ -403,8 +402,7 @@ const CategoryName = styled.p`
   z-index: 3;
 `;
 const Overlay = styled.div`
-  max-width: 1220px;
-  min-width: 1220px;
+  width: 65%;
   min-height: 205px;
   max-height: 205px;
   top: 0px;
