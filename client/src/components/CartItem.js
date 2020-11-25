@@ -39,7 +39,8 @@ const Wrapper = styled.div`
   background: white;
   width: 88%;
   border-radius: 12px;
-  box-shadow: 0px 8px 23px -2px rgba(22, 98, 108, 0.3);
+  box-shadow: 0px 0px 69px -20px rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
   margin-top: 20%;
   padding: 10px;
 `;

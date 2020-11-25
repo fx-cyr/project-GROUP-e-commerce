@@ -83,7 +83,7 @@ const Cart = () => {
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  /* background-color: #e8fffb; */
+  background-color: #e3e3e3;
   display: flex;
   position: sticky;
   flex-direction: column;
@@ -91,11 +91,8 @@ const Wrapper = styled.div`
   min-height: 100%;
   overflow: hidden;
   padding: 15px;
-  box-shadow: 3px 2.8px 2.2px rgba(0, 0, 0, 0.07),
-    3px 6.7px 5.3px rgba(0, 0, 0, 0.05), 3px 12.5px 10px rgba(0, 0, 0, 0.042),
-    3px 22.3px 17.9px rgba(0, 0, 0, 0.035),
-    3px 41.8px 33.4px rgba(0, 0, 0, 0.028), 3px 100px 80px rgba(0, 0, 0, 0.02);
-  border-radius: 16px;
+  box-shadow: -12px -3px 28px -15px rgba(0, 0, 0, 0.25);
+  border-left: 1px solid ${colorsSet.primary};
   align-items: center;
 `;
 
@@ -105,6 +102,7 @@ const Title = styled.span`
 
 const NumOfItems = styled.span`
   margin-top: 10px;
+  font-size: 1.1rem;
 `;
 
 const TotalCostAndButton = styled.div`
@@ -115,7 +113,7 @@ const TotalCostAndButton = styled.div`
   justify-content: center;
   flex-direction: column;
   bottom: 30px;
-  box-shadow: 0px 8px 23px -2px rgba(22, 98, 108, 0.3);
+  box-shadow: 0px 8px 23px -2px rgba(16, 172, 132, 0.3);
   padding: 25px 15px 25px 15px;
   border-radius: 12px;
   transition: 0.2s;

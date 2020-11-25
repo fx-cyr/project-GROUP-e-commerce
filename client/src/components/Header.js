@@ -12,7 +12,7 @@ export const Header = ({ category }) => {
           <CompanyName>DasWearables</CompanyName>
         </div>
         <IconWrap>
-          <TiWatch />
+          <TiWatch style={{ color: "#05c46b" }} />
         </IconWrap>
       </LeftHeaderContainer>
       <RightNavBar>

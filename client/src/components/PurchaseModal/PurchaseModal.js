@@ -286,12 +286,17 @@ const CardInfo = styled.div`
 `;
 const ConfirmButton = styled.button`
   margin: 20px;
-  background-color: ${colorsSet.primary};
+  background-color: ${colorsSet.secondary};
   font-weight: bold;
   border: 0px;
   border-radius: 25px;
   padding: 20px 20px;
   color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background: ${colorsSet.primaryHover};
+  }
 `;
 const Info = styled.div`
   display: flex;
