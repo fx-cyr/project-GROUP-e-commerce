@@ -5,6 +5,7 @@ import { AiOutlineLinkedin, AiOutlineGithub } from "react-icons/ai";
 import { colorsSet } from "../../Global/Colors";
 import fxProfile from "./DevPictures/FXDublin.jpg";
 import bradProfile from "./DevPictures/BradsProfilePic.png";
+import tommyProfile from "./DevPictures/TommysPic.png";
 
 export const AboutUs = () => {
   return (
@@ -119,20 +120,22 @@ export const AboutUs = () => {
             </MemberInfos>
           </Member>
           <Member>
-            <MemberImg src={samProfile} />
+            <MemberImg src={tommyProfile} />
             <MemberInfos>
-              <Name>Tommy</Name>
+              <Name>Athanasios Tommy Rigas</Name>
               <Linkedin>
                 <Logo>
                   <AiOutlineLinkedin />
                 </Logo>
-                <ProfilePagesLinks href="" target="_blank"></ProfilePagesLinks>
+                <ProfilePagesLinks href="https://www.linkedin.com/in/athanasios-tommy-rigas/" target="_blank">
+                www.linkedin.com/in/athanasios-tommy-rigas
+                </ProfilePagesLinks>
               </Linkedin>
               <GitHub>
                 <Logo>
                   <AiOutlineGithub />
                 </Logo>
-                <ProfilePagesLinks href="" target="_blank"></ProfilePagesLinks>
+                <ProfilePagesLinks href="https://github.com/AthanasiosR" target="_blank">github.com/AthanasiosR</ProfilePagesLinks>
               </GitHub>
             </MemberInfos>
           </Member>
