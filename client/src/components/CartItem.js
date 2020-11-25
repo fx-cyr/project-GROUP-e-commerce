@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { colorsSet } from "../Global/Colors";
-import { Icon } from "react-icons-kit";
-import { x } from "react-icons-kit/feather/x";
 import { useDispatch } from "react-redux";
 import { removeItem, updateQuantity } from "../actions";
 import { range } from "../utils";
@@ -20,15 +18,7 @@ const CartItem = ({ name, quantity, id, numInStock, cartArr, setCartArr }) => {
     <Wrapper>
       <TopDiv>
         <Title>{name}</Title>
-
-        <RemoveBtn>
-          <Icon
-            onClick={() => dispatch(removeItem({ id }))}
-            icon={x}
-            size={"100%"}
-            style={{ color: `${colorsSet.primary}` }}
-          />
-        </RemoveBtn>
+        <RemoveBtn onClick={() => dispatch(removeItem({ id }))}>X</RemoveBtn>
       </TopDiv>
       <Form>
         <Label for="quantity">Quantity:</Label>
@@ -67,15 +57,18 @@ const Title = styled.p`
 `;
 
 const RemoveBtn = styled.button`
-  height: 35px;
-  width: 35px;
+  color: ${colorsSet.primary};
+  font-size: 1.3em;
   background: transparent;
   border: none;
   cursor: pointer;
+  margin-right: 3px;
 `;
 
 const Form = styled.form``;
-const Label = styled.label``;
+const Label = styled.label`
+  margin-left: 10px;
+`;
 const Dropdown = styled.input`
   background-color: ${colorsSet.primary};
   margin-left: 8px;
