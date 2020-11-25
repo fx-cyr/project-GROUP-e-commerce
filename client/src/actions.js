@@ -24,6 +24,9 @@ export const updateQuantity = (item) => ({
   type: "UPDATE_QUANTITY",
   item,
 });
+export const removeAllItem = () => ({
+  type: "REMOVE_ALL_ITEM",
+});
 
 //Companies data
 export const requestCompaniesData = () => ({

@@ -34,6 +34,11 @@ export const cartReducer = (state = initialState, action) => {
         },
       };
     }
+
+    case "REMOVE_ALL_ITEM": {
+      let stateCopy = initialState;
+      return stateCopy;
+    }
     default:
       return state;
   }
