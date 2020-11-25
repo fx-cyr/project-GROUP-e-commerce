@@ -69,6 +69,7 @@ const Cart = () => {
 
 const Wrapper = styled.div`
   width: 100%;
+  height: 100vh;
   background: #e9f8fa;
   display: flex;
   position: sticky;
