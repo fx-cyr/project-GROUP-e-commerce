@@ -58,20 +58,20 @@ const ItemDetails = () => {
               <OOSButton disabled> Out of stock</OOSButton>
             )}
           </ItemInfoWrapper>
-          <CartWrapper>
-            <Cart />
-          </CartWrapper>
+          {/* <CartWrapper> */}
+          <Cart />
+          {/* </CartWrapper> */}
         </Wrapper>
       )}
     </>
   );
 };
 
-const CartWrapper = styled.div`
-  width: 18%;
-  height: 100vh;
-  justify-content: center;
-`;
+// const CartWrapper = styled.div`
+//   width: 18%;
+//   height: 100vh;
+//   justify-content: center;
+// `;
 
 const Wrapper = styled.div`
   display: flex;
@@ -93,6 +93,7 @@ const ProductImg = styled.img`
 
 const ItemInfoWrapper = styled.div`
   display: flex;
+  width: 300%;
   flex-direction: column;
   margin: 60px 0 50px 50px;
 `;
