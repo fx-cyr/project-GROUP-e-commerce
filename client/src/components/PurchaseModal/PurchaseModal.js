@@ -209,6 +209,7 @@ export const PurchaseModal = ({ storeItems, total }) => {
   );
 };
 const Wrapper = styled.div`
+  z-index: 10;
   padding: 5%;
   position: absolute;
   top: 20px;
