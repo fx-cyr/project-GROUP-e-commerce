@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Company } from "./Company";
+import { Loading } from "../Loading";
 
 export const Partners = ({ allCompanies }) => {
   console.log(allCompanies);
@@ -30,7 +31,7 @@ export const Partners = ({ allCompanies }) => {
                 />
               );
             })
-          : "Loading..."}
+          : <Loading/>}
       </CompaniesColumns>
     </Wrapper>
   );

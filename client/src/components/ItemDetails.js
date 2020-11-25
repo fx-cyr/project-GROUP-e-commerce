@@ -5,11 +5,13 @@ import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
 import { addItems } from "../actions";
 import Cart from "./Cart";
+import { Loading } from "./Loading";
 
 const ItemDetails = () => {
   let { itemId } = useParams();
   const [singleItem, setSingleItem] = useState(null);
   const dispatch = useDispatch();
+   
   // console.log(singleItem);
 
   // Data for single item
@@ -34,7 +36,9 @@ const ItemDetails = () => {
 
   return (
     <>
-      {!singleItem && "Loading"}
+      {!singleItem && 
+      <Loading />
+      }
       {singleItem && (
         <Wrapper>
           <ImgWrapper>
@@ -144,5 +148,7 @@ const OOSButton = styled.button`
   padding: 10px 40px;
   cursor: not-allowed;
 `;
+
+
 
 export default ItemDetails;

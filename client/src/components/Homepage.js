@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Cart from "./Cart";
 import { Sidebar } from "./Sidebar";
 import Item from "./Item";
+import { Loading } from "./Loading"
 
 export const Homepage = ({ category, setCategory }) => {
   const [allItems, setAllItems] = useState([]);
@@ -24,14 +25,19 @@ export const Homepage = ({ category, setCategory }) => {
     fetchItems();
   }, []);
 
-  // console.log(allItems);
+  console.log(allItems);
   return (
     <HomePageWrapper>
       <SidebarWrapper>
         <Sidebar setCategory={setCategory} />
       </SidebarWrapper>
-      <ItemDisplayGridWrapper>
-        {category === "all" &&
+      
+        {allItems.length === 0 && <Loading />}
+        
+        {allItems &&
+        <ItemDisplayGridWrapper>
+
+          {category === "all" &&
           allItems.map((item) => {
             return <Item key={item._id} item={item} />;
           })}
@@ -147,7 +153,9 @@ export const Homepage = ({ category, setCategory }) => {
               return <Item key={item._id} item={item} />;
             }
           })}
-      </ItemDisplayGridWrapper>
+          </ItemDisplayGridWrapper> 
+          }
+        
       <CartWrapper>
         <Cart />
       </CartWrapper>
