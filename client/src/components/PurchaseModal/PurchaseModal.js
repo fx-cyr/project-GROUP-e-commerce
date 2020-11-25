@@ -157,18 +157,16 @@ export const PurchaseModal = ({
               </Info>
               <Info>
                 <InfoLabel>Full Name:</InfoLabel>
-                <UserInputName
-                  id="name"
+                <UserInput
                   onChange={(ev) => {
                     handleChange(setFullName, ev);
                   }}
-                ></UserInputName>
+                ></UserInput>
               </Info>
               <Info>
                 <InfoLabel>Email Address:</InfoLabel>
                 <UserInput
                   type="email"
-                  id="name"
                   onChange={(ev) => {
                     handleChange(setEmailAdress, ev);
                   }}
@@ -313,15 +311,7 @@ const UserInput = styled.input`
   border-radius: 5px;
   margin-right: 20px;
   margin-bottom: 10px;
-  border-width: 2px;
-`;
-
-const UserInputName = styled.input`
-  flex: 1;
-  border-radius: 5px;
-  margin-right: 20px;
-  margin-bottom: 10px;
-  border-width: 2px;
+  border: 1px solid lightgrey;
 `;
 
 const HyperLink = styled.p`

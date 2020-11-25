@@ -8,12 +8,12 @@ export const Header = ({ category }) => {
   return (
     <HeaderWrapper>
       <LeftHeaderContainer>
-        <div>
-          <CompanyName>DasWearables</CompanyName>
-        </div>
         <IconWrap>
           <TiWatch style={{ color: "#05c46b" }} />
         </IconWrap>
+        <div>
+          <CompanyName>DasWearables</CompanyName>
+        </div>
       </LeftHeaderContainer>
       <RightNavBar>
         <StyledUL>
@@ -55,8 +55,8 @@ const HeaderWrapper = styled.div`
 `;
 
 const IconWrap = styled.div`
-  margin-top: 10px;
-  margin-left: 8px;
+  margin-top: 6px;
+  margin-right: 8px;
 `;
 
 const LeftHeaderContainer = styled.div`

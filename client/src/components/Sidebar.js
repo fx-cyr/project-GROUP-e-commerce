@@ -34,7 +34,7 @@ export const Sidebar = ({ setCategory }) => {
               to="/home/entertainement"
             >
               {" "}
-              <MdFiberSmartRecord />
+              <MdFiberSmartRecord style={{ marginRight: "10px" }} />
               <Bold>Entertainement</Bold>
             </NavigationLink>
           </ListItems>
@@ -45,7 +45,7 @@ export const Sidebar = ({ setCategory }) => {
               }}
               to="/home/fitness"
             >
-              <IoIosFitness />
+              <IoIosFitness style={{ marginRight: "10px" }} />
               <Bold>Fitness</Bold>
             </NavigationLink>
           </ListItems>
@@ -56,7 +56,7 @@ export const Sidebar = ({ setCategory }) => {
               }}
               to="/home/gaming"
             >
-              <CgGames /> <Bold>Gaming</Bold>
+              <CgGames style={{ marginRight: "10px" }} /> <Bold>Gaming</Bold>
             </NavigationLink>
           </ListItems>
           <ListItems>
@@ -67,7 +67,7 @@ export const Sidebar = ({ setCategory }) => {
               to="/home/industrial"
             >
               {" "}
-              <HiOutlineColorSwatch />
+              <HiOutlineColorSwatch style={{ marginRight: "10px" }} />
               <Bold>Industrial</Bold>
             </NavigationLink>
           </ListItems>
@@ -79,7 +79,7 @@ export const Sidebar = ({ setCategory }) => {
               to="/home/lifestyle"
             >
               {" "}
-              <FaWalking />
+              <FaWalking style={{ marginRight: "10px" }} />
               <Bold>Lifestyle</Bold>
             </NavigationLink>
           </ListItems>
@@ -91,7 +91,7 @@ export const Sidebar = ({ setCategory }) => {
               to="/home/medical"
             >
               {" "}
-              <AiOutlineMedicineBox />
+              <AiOutlineMedicineBox style={{ marginRight: "10px" }} />
               <Bold>Medical</Bold>
             </NavigationLink>
           </ListItems>
@@ -103,7 +103,7 @@ export const Sidebar = ({ setCategory }) => {
               to="/home/pets&animals"
             >
               {" "}
-              <IoIosPaw />
+              <IoIosPaw style={{ marginRight: "10px" }} />
               <Bold>Pets & Animals</Bold>
             </NavigationLink>
           </ListItems>
@@ -234,7 +234,6 @@ const SidebarWrapper = styled.nav`
 
 const Bold = styled.span`
   font-weight: bold;
-  margin-left: 15px;
   margin-right: 15px;
 `;
 
@@ -246,15 +245,25 @@ const Main = styled.span`
 const NavigationLink = styled(NavLink)`
   font-size: 14px;
   color: black;
-  padding: 5px 10px;
+  margin: 5px 0;
   text-decoration: none;
-  border-radius: 20px;
+  border-radius: 15px;
 
-  &:hover {
-    background-color: ${colorsSet.primaryHover};
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    border-top: 2px solid black;
+    background: #000;
+    transition: width 0.2s;
   }
+
+  &:hover::after {
+    width: 20%;
+  }
+
   &.active {
-    color: ${colorsSet.primary};
+    color: ${colorsSet.secondary};
   }
 `;
 

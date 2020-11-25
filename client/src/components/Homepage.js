@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Cart from "./Cart";
 import { Sidebar } from "./Sidebar";
 import Item from "./Item";
-import { Loading } from "./Loading"
+import { Loading } from "./Loading";
 import Entertainment from "./BannersImg/Entertainment.jpeg";
 import Fitness from "./BannersImg/Fitness.jpg";
 import Gaming from "./BannersImg/Gaming.jpg";
@@ -43,7 +43,7 @@ export const Homepage = ({ category, setCategory }) => {
     <HomePageWrapper>
       <SidebarWrapper>
         <Sidebar setCategory={setCategory} />
-      </SidebarWrapper> 
+      </SidebarWrapper>
       {allItems.length === 0 && <Loading />}
 
       <ItemDisplayGridWrapper>
