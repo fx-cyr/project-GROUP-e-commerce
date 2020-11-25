@@ -99,6 +99,7 @@ export const PurchaseModal = ({
     ) {
       setErrorMsg("expiry_error");
     } else {
+      setErrorMsg(null);
       handleConfirmation();
     }
   };
