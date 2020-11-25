@@ -5,7 +5,13 @@ import { useHistory } from "react-router";
 import { PurchaseConfirmation } from "../PurchaseConfirmation";
 import Modal from "react-modal";
 
-export const PurchaseModal = ({ storeItems, total }) => {
+export const PurchaseModal = ({
+  storeItems,
+  total,
+  showModal,
+  setShowModal,
+  handle,
+}) => {
   const [fullName, setFullName] = useState("");
   const [emailAddress, setEmailAdress] = useState("");
   const [streetAdress, setStreetAdress] = useState("");
@@ -14,6 +20,8 @@ export const PurchaseModal = ({ storeItems, total }) => {
   const [expiryDate, setExpiryDate] = useState("");
   const [confirmation, setConfirmation] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
+
+  console.log(showModal);
 
   const history = useHistory();
   const handleExitCart = () => {
@@ -91,136 +99,170 @@ export const PurchaseModal = ({ storeItems, total }) => {
 
   return (
     <>
-      {/* <Modal> */}
-      <Wrapper>
-        <PurchaseInfo>
-          <Title>
-            <div>Order summary:</div>
-          </Title>
-          {storeItems.map((item) => {
-            return (
-              <>
-                <div>{item.name}</div>
-                <div>{item.quantity}</div>
-              </>
-            );
-          })}
-          <Title>
-            <div>Please Provide The Following Information</div>
-          </Title>
-          <ShippingAddress>
+      <Modal
+        isOpen={showModal}
+        style={{
+          overlay: {
+            zIndex: 1001,
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+          },
+          content: {
+            position: "absolute",
+            top: "40px",
+            left: "40px",
+            right: "40px",
+            bottom: "40px",
+            border: "1px solid #ccc",
+            background: "#fff",
+            overflow: "auto",
+            WebkitOverflowScrolling: "touch",
+            borderRadius: "4px",
+            outline: "none",
+            padding: "20px",
+          },
+        }}
+      >
+        <Wrapper>
+          <PurchaseInfo>
+            <Title>ORDER SUMMARY</Title>
+            {storeItems.map((item) => {
+              return (
+                <ItemContainer>
+                  <ProductImg src={item.imageSrc} />{" "}
+                  <ItemDetails>
+                    <Bold>{item.quantity} x</Bold>
+                    <ProductName>{item.name}</ProductName>
+                  </ItemDetails>
+                </ItemContainer>
+              );
+            })}
             <Info>
-              <Title>Shipping Address</Title>
+              Total: <Bold>${total}</Bold>
             </Info>
-            <Info>
-              <InfoLabel>Full Name:</InfoLabel>
-              <UserInputName
-                id="name"
-                onChange={(ev) => {
-                  handleChange(setFullName, ev);
-                }}
-              ></UserInputName>
-            </Info>
-            <Info>
-              <InfoLabel>Email Address:</InfoLabel>
-              <UserInput
-                type="email"
-                id="name"
-                onChange={(ev) => {
-                  handleChange(setEmailAdress, ev);
-                }}
-              ></UserInput>
-            </Info>
-            <Info>
-              <InfoLabel>Address:</InfoLabel>
-              <UserInput
-                onChange={(ev) => {
-                  handleChange(setStreetAdress, ev);
-                }}
-              ></UserInput>
-            </Info>
-          </ShippingAddress>
-          <CardInfo>
-            <Info>
-              <Title>Payment Method</Title>
-            </Info>
-            <Info>
-              <InfoLabel>Card Number:</InfoLabel>
-              <UserInput
-                minlength="16"
-                placeholder="XXXX XXXX XXXX XXXX"
-                onChange={(ev) => {
-                  handleChange(setCreditCard, ev);
-                }}
-              ></UserInput>
-            </Info>
-            <Info>
-              <InfoLabel>Name on Card:</InfoLabel>
-              <UserInput
-                placeholder="Name"
-                onChange={(ev) => {
-                  handleChange(setCCName, ev);
-                }}
-              ></UserInput>
-            </Info>
-            <Info>
-              <InfoLabel>Expiry Date (MM/YY):</InfoLabel>
-              <UserInput
-                minlength="5"
-                onChange={(ev) => {
-                  handleChange(setExpiryDate, ev);
-                }}
-              ></UserInput>
-            </Info>
-          </CardInfo>
-          {errorMsg === "fullName_error" && (
-            <ErrorBox> Your name is wrong </ErrorBox>
+            <Divider />
+            <ShippingAddress>
+              <Info>
+                <Title>SHIPPING INFORMATION</Title>
+              </Info>
+              <Info>
+                <InfoLabel>Full Name:</InfoLabel>
+                <UserInputName
+                  id="name"
+                  onChange={(ev) => {
+                    handleChange(setFullName, ev);
+                  }}
+                ></UserInputName>
+              </Info>
+              <Info>
+                <InfoLabel>Email Address:</InfoLabel>
+                <UserInput
+                  type="email"
+                  id="name"
+                  onChange={(ev) => {
+                    handleChange(setEmailAdress, ev);
+                  }}
+                ></UserInput>
+              </Info>
+              <Info>
+                <InfoLabel>Address:</InfoLabel>
+                <UserInput
+                  onChange={(ev) => {
+                    handleChange(setStreetAdress, ev);
+                  }}
+                ></UserInput>
+              </Info>
+            </ShippingAddress>{" "}
+            <Divider />
+            <CardInfo>
+              <Info>
+                <Title>PAYMENT METHOD</Title>
+              </Info>
+              <Info>
+                <InfoLabel>Card Number:</InfoLabel>
+                <UserInput
+                  minlength="16"
+                  onChange={(ev) => {
+                    handleChange(setCreditCard, ev);
+                  }}
+                ></UserInput>
+              </Info>
+              <Info>
+                <InfoLabel>Cardholder</InfoLabel>
+                <UserInput
+                  onChange={(ev) => {
+                    handleChange(setCCName, ev);
+                  }}
+                ></UserInput>
+              </Info>
+              <Info>
+                <InfoLabel>Expiry Date (MM/YY):</InfoLabel>
+                <UserInput
+                  minlength="5"
+                  onChange={(ev) => {
+                    handleChange(setExpiryDate, ev);
+                  }}
+                ></UserInput>
+              </Info>
+            </CardInfo>
+            {errorMsg === "fullName_error" && (
+              <ErrorBox> Your name is wrong </ErrorBox>
+            )}
+            {errorMsg === "email_error" && (
+              <ErrorBox> Your email is wrong </ErrorBox>
+            )}
+            {errorMsg === "street_error" && (
+              <ErrorBox> Your address is wrong </ErrorBox>
+            )}
+            {errorMsg === "ccNum_error" && (
+              <ErrorBox> Invalid credit card</ErrorBox>
+            )}
+            {errorMsg === "ccName_error" && (
+              <ErrorBox> Credit name holder missing </ErrorBox>
+            )}
+            {errorMsg === "expiry_error" && (
+              <ErrorBox> Wrong expiry date </ErrorBox>
+            )}
+            <ConfirmButton type="submit" onClick={checkIsValid}>
+              Confirm Purchase
+            </ConfirmButton>
+            <HyperLink
+              onClick={() => {
+                handleExitCart();
+              }}
+            >
+              Go back to shopping
+            </HyperLink>
+          </PurchaseInfo>
+          {confirmation && (
+            <PurchaseConfirmation
+              fullName={fullName}
+              emailAddress={emailAddress}
+              streetAdress={streetAdress}
+            />
           )}
-          {errorMsg === "email_error" && (
-            <ErrorBox> Your email is wrong </ErrorBox>
-          )}
-          {errorMsg === "street_error" && (
-            <ErrorBox> Your address is wrong </ErrorBox>
-          )}
-          {errorMsg === "ccNum_error" && (
-            <ErrorBox> Invalid credit card</ErrorBox>
-          )}
-          {errorMsg === "ccName_error" && (
-            <ErrorBox> Credit name holder missing </ErrorBox>
-          )}
-          {errorMsg === "expiry_error" && (
-            <ErrorBox> Wrong expiry date </ErrorBox>
-          )}
-          <ConfirmButton type="submit" onClick={checkIsValid}>
-            Confirm Purchase
-          </ConfirmButton>
-          <HyperLink
-            onClick={() => {
-              handleExitCart();
-            }}
-          >
-            Go back to shopping
-          </HyperLink>
-        </PurchaseInfo>
-        {confirmation && <PurchaseConfirmation fullName={fullName} />}
-      </Wrapper>
-      {/* </Modal> */}
+        </Wrapper>
+      </Modal>
     </>
   );
 };
+
 const Wrapper = styled.div`
   z-index: 10;
   padding: 5%;
-  position: absolute;
+  /* position: absolute;
   top: 20px;
-  left: 10%;
+  left: 10%; */
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
-  border-radius: 10px;
+  /* border-radius: 10px;
   box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.75);
-  border: 2px solid ${colorsSet.primary};
+  border: 2px solid ${colorsSet.primary}; */
   color: black;
 `;
 const Title = styled.div`
@@ -231,18 +273,18 @@ const Title = styled.div`
 const PurchaseInfo = styled.div`
   text-align: center;
 `;
-const ShippingAddress = styled.div`
-  margin-top: 10px;
-`;
+const ShippingAddress = styled.div``;
 const CardInfo = styled.div`
   margin-top: 20px;
 `;
 const ConfirmButton = styled.button`
-  background-color: lightgreen;
+  margin: 20px;
+  background-color: ${colorsSet.primary};
   font-weight: bold;
-  height: 30px;
-  margin-top: 20px;
-  border-radius: 5px;
+  border: 0px;
+  border-radius: 25px;
+  padding: 20px 20px;
+  color: white;
 `;
 const Info = styled.div`
   display: flex;
@@ -283,4 +325,32 @@ const ErrorBox = styled.div`
   border-radius: 12px;
   margin: 10px;
   padding: 10px;
+`;
+
+const ItemContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const ItemDetails = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const ProductImg = styled.img`
+  width: 50px;
+  border-radius: 10%;
+`;
+
+const Bold = styled.div`
+  font-weight: bold;
+  margin-left: 10px;
+`;
+const ProductName = styled.span`
+  margin-left: 10px;
+`;
+
+const Divider = styled.div`
+  border-top: 2px dashed lightgrey;
+  margin: 20px;
 `;
