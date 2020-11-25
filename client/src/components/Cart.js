@@ -133,6 +133,7 @@ const PurchaseBtn = styled.button`
   align-items: center;
   justify-content: center;
   background-color: ${colorsSet.secondary};
+  font-weight: 600;
   color: white;
   font-size: 1.2rem;
   border: none;
