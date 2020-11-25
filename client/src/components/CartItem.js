@@ -8,7 +8,7 @@ import { removeItem, updateQuantity } from "../actions";
 import { range } from "../utils";
 import Item from "./Item";
 
-const CartItem = ({ name, quantity, id, numInStock }) => {
+const CartItem = ({ name, quantity, id, numInStock, cartArr, setCartArr }) => {
   const [newQuantity, setNewQuantity] = useState(1);
   const handleQuantity = (ev) => {
     setNewQuantity(ev.target.value);

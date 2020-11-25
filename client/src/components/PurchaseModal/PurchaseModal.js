@@ -4,6 +4,8 @@ import { colorsSet } from "../../Global/Colors";
 import { useHistory } from "react-router";
 import { PurchaseConfirmation } from "../PurchaseConfirmation";
 import Modal from "react-modal";
+import { removeAllItem } from "../../actions";
+import { useDispatch } from "react-redux";
 
 export const PurchaseModal = ({
   storeItems,
@@ -11,7 +13,10 @@ export const PurchaseModal = ({
   showModal,
   setShowModal,
   handle,
+  cartArr,
+  setCartArr,
 }) => {
+  const dispatch = useDispatch();
   const [fullName, setFullName] = useState("");
   const [emailAddress, setEmailAdress] = useState("");
   const [streetAdress, setStreetAdress] = useState("");
@@ -34,6 +39,7 @@ export const PurchaseModal = ({
 
   const handleConfirmation = () => {
     setConfirmation(true);
+    dispatch(removeAllItem());
   };
   const singleNum = creditCard.split("");
   const isNumber = singleNum.map((num) => {

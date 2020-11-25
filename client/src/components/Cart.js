@@ -8,15 +8,18 @@ import { PurchaseModal } from "./PurchaseModal/PurchaseModal";
 
 const Cart = () => {
   const [showModal, setShowModal] = useState(false);
+
   const handleModalPop = () => {
     setShowModal(true);
   };
   //Create an Array of items in the cart
   const storeItems = useSelector(getStoreItemArray);
+  const [cartArr, setCartArr] = useState(storeItems);
   // console.log(storeItems);
 
   //Calculate the Cart total
   let total = 0;
+
   storeItems.forEach((item) => {
     let itemPrice = item.price.replace("$", "");
     total += itemPrice * item.quantity;
@@ -69,6 +72,8 @@ const Cart = () => {
           storeItems={storeItems}
           showModal={showModal}
           setShowModal={setShowModal}
+          cartArr={cartArr}
+          setCartArr={setCartArr}
         />
       )}
     </>
